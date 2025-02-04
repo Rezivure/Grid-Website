@@ -9,7 +9,7 @@ Grid is a privacy-focused location sharing application that uses end-to-end encr
 ### Key Features Highlighted
 
 - **End-to-End Encryption (E2EE)**: Demonstrates Grid's commitment to user privacy
-- **Matrix Protocol Integration**: Explains the benefits of decentralized communication
+- **Matrix Protocol Integration**: Explains the benefits of E2EE
 - **Cross-Platform Support**: Showcases availability on both Android and iOS
 - **Self-Hosting Capabilities**: Details on how users can maintain complete control of their data
 
