@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const meta: Metadata = {
   title: 'Privacy Policy - Grid',
   description: 'Privacy Policy for Grid Location Sharing',
 }

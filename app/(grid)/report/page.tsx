@@ -10,7 +10,7 @@ import {
 import { useEffect } from 'react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const meta: Metadata = {
   title: 'Report Abuse - Grid',
   description: 'Report abuse or violations on Grid',
 }

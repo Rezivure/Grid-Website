@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
+export const meta: Metadata = {
   title: 'Terms of Service - Grid',
   description: 'Terms of Service for Grid Location Sharing',
 }
