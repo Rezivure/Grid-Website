@@ -12,10 +12,6 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Privacy Policy - Grid',
-  description: 'Privacy Policy for Grid Location Sharing',
-}
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <Box mb={8}>

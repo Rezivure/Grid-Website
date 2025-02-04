@@ -13,10 +13,6 @@ import {
 import { FiShield, FiUsers, FiTarget } from 'react-icons/fi'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'About - Grid',
-  description: 'Learn about Grid\'s mission and commitment to privacy',
-}
 
 const Section = ({ 
   title, 
