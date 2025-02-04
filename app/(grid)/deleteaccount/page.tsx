@@ -19,7 +19,7 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
-export const meta: Metadata = {
+export const metadata: Metadata = {
   title: 'Delete Account - Grid',
   description: 'Delete your Grid account',
 }

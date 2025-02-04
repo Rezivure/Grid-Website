@@ -54,7 +54,7 @@ import faq from '#data/faq'
 import testimonials from '#data/testimonials'
 import PrivacyPage from './privacy/page';
 
-export const meta: Metadata = {
+export const metadata: Metadata = {
   title: 'Grid',
   description: 'Private Location Sharing',
 }
