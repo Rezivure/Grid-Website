@@ -18,23 +18,28 @@ const siteConfig = {
       {
         label: 'Get Grid',
         href: 'https://get.grid.lat',
+        id: 'get-grid',
       },
       {
         label: 'Help',
         href: '/help',
+        id: 'help',
       },
       {
         label: 'Blog',
         href: 'https://rezivure.io',
+        id: 'blog',
       },
       {
         label: 'Docs',
         href: 'https://docs.mygrid.app',
+        id: 'docs',
       },
       {
         label: 'Github',
         href: 'https://github.com/rezivure/Grid-Mobile',
         variant: 'primary',
+        id: 'github',
       },
     ],
   },
