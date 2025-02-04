@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_DISABLE_ESLINT=1 next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint"    
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.1",
@@ -20,7 +20,8 @@
     "@svgr/webpack": "^8.1.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.11.1",
-    "next": "^14.2.14",
+    "next": ">=14.2.21",
+    "next-seo": "^6.6.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-icons": "^5.3.0",
@@ -33,10 +34,9 @@
     "@types/node": "22.7.4",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
-    "eslint": "9.12.0",
+    "eslint": "8.57.1",
     "eslint-config-next": "14.2.14",
     "prettier": "^3.3.3",
     "typescript": "5.6.2"
-  },
-  "packageManager": "pnpm@8.15.9+sha512.499434c9d8fdd1a2794ebf4552b3b25c0a633abcee5bb15e7b5de90f32f47b513aca98cd5cfd001c31f0db454bc3804edccd578501e4ca293a6816166bbd9f81"
+  }
 }

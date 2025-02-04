@@ -19,10 +19,7 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
-export const meta: Metadata = {
-  title: 'Delete Account - Grid',
-  description: 'Delete your Grid account',
-}
+
 
 const API_BASE_URL = 'https://gauth.mygrid.app'
 

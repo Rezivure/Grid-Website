@@ -54,11 +54,6 @@ import faq from '#data/faq'
 import testimonials from '#data/testimonials'
 import PrivacyPage from './privacy/page';
 
-export const meta: Metadata = {
-  title: 'Grid',
-  description: 'Private Location Sharing',
-}
-
 const Home: NextPage = () => {
   return (
     <Box>

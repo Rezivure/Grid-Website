@@ -8,12 +8,7 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useEffect } from 'react'
-import type { Metadata } from 'next'
 
-export const meta: Metadata = {
-  title: 'Report Abuse - Grid',
-  description: 'Report abuse or violations on Grid',
-}
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
     <Box mb={8}>
