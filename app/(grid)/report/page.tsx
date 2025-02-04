@@ -8,7 +8,6 @@ import {
   VStack,
 } from '@chakra-ui/react'
 import { useEffect } from 'react'
-import type { Metadata } from 'next'
 
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
