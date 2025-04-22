@@ -69,7 +69,7 @@ const GitHubStars: React.FC<GitHubStarsProps> = ({
       >
         <FiStar color="#FFD700" />
         <Text fontSize="sm" fontWeight="medium" whiteSpace="nowrap">
-          {stars} stars on Github
+        Open Source
         </Text>
       </HStack>
     </Link>

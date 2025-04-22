@@ -16,12 +16,12 @@ const siteConfig = {
   header: {
     links: [
       {
-        label: 'Get Grid',
-        href: 'https://get.grid.lat',
-        id: 'get-grid',
+        label: 'Github',
+        href: 'https://github.com/rezivure/Grid-Mobile',
+        id: 'github',
       },
       {
-        label: 'Help',
+        label: 'Get Help',
         href: '/help',
         id: 'help',
       },
@@ -36,10 +36,10 @@ const siteConfig = {
         id: 'docs',
       },
       {
-        label: 'Github',
-        href: 'https://github.com/rezivure/Grid-Mobile',
+        label: 'Get Grid',
+        href: 'https://get.grid.lat',
         variant: 'primary',
-        id: 'github',
+        id: 'get-grid',
       },
     ],
   },

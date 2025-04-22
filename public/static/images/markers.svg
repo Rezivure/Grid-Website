@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <!-- Enhanced drop shadow -->
+    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+      <feOffset dx="1" dy="2" result="offsetblur" />
+      <feFlood flood-color="rgba(0,0,0,0.4)" />
+      <feComposite in2="offsetblur" operator="in" />
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Location Pin -->
+    <g id="pin">
+      <path d="M40,16 C32.8,16 25.6,19 25.6,28 C25.6,40 40,52 40,52 C40,52 54.4,40 54.4,28 C54.4,19 47.2,16 40,16 Z" 
+            fill="#4ADE80"
+            filter="url(#dropShadow)">
+      </path>
+      <circle cx="40" cy="28" r="3" fill="white" opacity="0.8" />
+    </g>
+  </defs>
+
+  <!-- Inner pulse -->
+  <circle cx="40" cy="40" r="14" fill="none" stroke="#4ADE80" stroke-width="1.2">
+    <animate attributeName="r" values="10;20" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.8;0" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+  
+  <!-- Outer pulse -->
+  <circle cx="40" cy="40" r="14" fill="none" stroke="#4ADE80" stroke-width="0.8">
+    <animate attributeName="r" values="10;28" dur="1.5s" repeatCount="indefinite" />
+    <animate attributeName="stroke-opacity" values="0.6;0" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Pin with subtle scale animation -->
+  <use href="#pin">
+    <animate attributeName="transform" 
+             values="scale(1);scale(1.1);scale(1)" 
+             dur="1.5s" 
+             repeatCount="indefinite" />
+  </use>
+</svg>
