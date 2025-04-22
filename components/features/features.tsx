@@ -1,127 +1,110 @@
-import * as React from 'react'
-import {
-  Box,
-  Stack,
-  VStack,
-  SimpleGrid,
-  Heading,
-  Text,
-  Icon,
-  Circle,
-  ResponsiveValue,
-  useMultiStyleConfig,
-  ThemingProps,
-  SystemProps,
-} from '@chakra-ui/react'
+import React, { useState } from 'react';
+import { Box, HStack, Text, IconButton, Heading } from '@chakra-ui/react';
+import { FiLock, FiMap, FiUsers } from 'react-icons/fi';
 
-import { Section, SectionTitle, SectionTitleProps } from 'components/section'
+const FeatureSection = () => {
+  const [selectedFeature, setSelectedFeature] = useState('encryption');
 
-const Revealer = ({ children }: any) => {
-  return children
-}
-
-export interface FeaturesProps
-  extends Omit<SectionTitleProps, 'title' | 'variant'>,
-    ThemingProps<'Features'> {
-  title?: React.ReactNode
-  description?: React.ReactNode
-  features: Array<FeatureProps>
-  columns?: ResponsiveValue<number>
-  spacing?: string | number
-  aside?: React.ReactChild
-  reveal?: React.FC<any>
-  iconSize?: SystemProps['boxSize']
-  innerWidth?: SystemProps['maxW']
-}
-
-export interface FeatureProps {
-  title?: React.ReactNode
-  description?: React.ReactNode
-  icon?: any
-  iconPosition?: 'left' | 'top'
-  iconSize?: SystemProps['boxSize']
-  ip?: 'left' | 'top'
-  variant?: string
-  delay?: number
-}
-
-export const Feature: React.FC<FeatureProps> = (props) => {
-  const {
-    title,
-    description,
-    icon,
-    iconPosition,
-    iconSize = 8,
-    ip,
-    variant,
-  } = props
-  const styles = useMultiStyleConfig('Feature', { variant })
-
-  const pos = iconPosition || ip
-  const direction = pos === 'left' ? 'row' : 'column'
+  const features = {
+    encryption: {
+      title: 'End-to-end Encryption',
+      description:
+        'Your location data is encrypted on your device before it’s sent — ensuring that only you and the people you choose can access it. No one else, not even Grid, can see your location. We use the Matrix protocol, designed for secure, decentralized communication, so your data stays private every step of the way.',
+    },
+    map: {
+      title: 'Private Maps',
+      description:
+        'Grid uses self-hosted Protomaps to serve map tiles privately, without third-party tracking or logging. Unlike other apps that rely on Google or Apple Maps — which may log every tile you view — our maps are delivered from our own infrastructure. Your browsing stays private.',
+    },
+    groups: {
+      title: 'Custom Groups',
+      description:
+        'Create private groups to share your location on your terms. Whether it’s a temporary group for a weekend ride or a permanent one for your family, you’re in full control. Set custom schedules, share for just a few hours or indefinitely, and manage it all without paywalls or restrictions.',
+    },
+  }
+  
+  
+  
 
   return (
-    <Stack sx={styles.container} direction={direction}>
-      {icon && (
-        <Circle sx={styles.icon}>
-          <Icon as={icon} boxSize={iconSize} />
-        </Circle>
-      )}
-      <Box>
-        <Heading sx={styles.title}>{title}</Heading>
-        <Text sx={styles.description}>{description}</Text>
+    <Box mt={{ base: 10, lg: 0 }} position="relative" zIndex={2} paddingTop={0}>
+      <Box textAlign="center" mb={8}>
+        <Heading
+          lineHeight="short"
+          fontSize={['2xl', null, '4xl']}
+          mb={4}
+        >
+          Why Grid?
+        </Heading>
+        Explore below to see why Grid is a secure, trusted, and powerful way to share.
+
+
       </Box>
-    </Stack>
-  )
-}
 
-export const Features: React.FC<FeaturesProps> = (props) => {
-  const {
-    title,
-    description,
-    features,
-    columns = [1, 2, 3],
-    spacing = 8,
-    align: alignProp = 'center',
-    iconSize = 8,
-    aside,
-    reveal: Wrap = Revealer,
-    ...rest
-  } = props
+      <Box maxW="container.md" mx="auto">
+        <HStack spacing={8} justify="center" mb={8}>
+          <IconButton
+            aria-label="Encryption"
+            icon={<FiLock size={24} />}
+            size="lg"
+            variant={selectedFeature === 'encryption' ? 'solid' : 'ghost'}
+            colorScheme="green"
+            onClick={() => setSelectedFeature('encryption')}
+            p={8}
+          />
+          <IconButton
+            aria-label="Private Maps"
+            icon={<FiMap size={24} />}
+            size="lg"
+            variant={selectedFeature === 'map' ? 'solid' : 'ghost'}
+            colorScheme="green"
+            onClick={() => setSelectedFeature('map')}
+            p={8}
+          />
+          <IconButton
+            aria-label="Groups"
+            icon={<FiUsers size={24} />}
+            size="lg"
+            variant={selectedFeature === 'groups' ? 'solid' : 'ghost'}
+            colorScheme="green"
+            onClick={() => setSelectedFeature('groups')}
+            p={8}
+          />
+        </HStack>
 
-  const align = !!aside ? 'left' : alignProp
+        <Box 
+          textAlign="center" 
+          px={4}
+          height="120px" 
+          display="flex" 
+          flexDirection="column" 
+          justifyContent="flex-start"
+        >
+          <Text
+            fontSize="xl"
+            fontWeight="bold"
+            mb={4}
+            style={{
+              opacity: 1,
+              transition: 'opacity 0.3s ease-in-out'
+            }}
+          >
+            {features[selectedFeature].title}
+          </Text>
+          <Text
+            fontSize="lg"
+            color="gray.300"
+            style={{
+              opacity: 1,
+              transition: 'opacity 0.3s ease-in-out'
+            }}
+          >
+            {features[selectedFeature].description}
+          </Text>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
 
-  const ip = align === 'left' ? 'left' : 'top'
-
-  return (
-    <Section {...rest}>
-      <Stack direction="row" height="full" align="flex-start">
-        <VStack flex="1" spacing={[4, null, 8]} alignItems="stretch">
-          {(title || description) && (
-            <Wrap>
-              <SectionTitle
-                title={title}
-                description={description}
-                align={align}
-              />
-            </Wrap>
-          )}
-          <SimpleGrid columns={columns} spacing={spacing}>
-            {features.map((feature, i) => {
-              return (
-                <Wrap key={i} delay={feature.delay}>
-                  <Feature iconSize={iconSize} {...feature} ip={ip} />
-                </Wrap>
-              )
-            })}
-          </SimpleGrid>
-        </VStack>
-        {aside && (
-          <Box flex="1" p="8">
-            {aside}
-          </Box>
-        )}
-      </Stack>
-    </Section>
-  )
-}
+export default FeatureSection;

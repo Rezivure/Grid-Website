@@ -9,7 +9,6 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { Link, LinkProps } from '@saas-ui/react'
-
 import siteConfig from '#data/config'
 
 export interface FooterProps extends BoxProps {
@@ -18,10 +17,19 @@ export interface FooterProps extends BoxProps {
 
 export const Footer: React.FC<FooterProps> = (props) => {
   const { columns = 2, ...rest } = props
+
+  // Separate text links and icon links
+  const textLinks = siteConfig.footer.links.filter(
+    (link) => typeof link.label === 'string'
+  )
+  const iconLinks = siteConfig.footer.links.filter(
+    (link) => typeof link.label !== 'string'
+  )
+
   return (
     <Box bg="white" _dark={{ bg: 'gray.900' }} {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
-        <SimpleGrid columns={columns}>
+        <SimpleGrid columns={{ base: 1, md: columns }} spacing={8}>
           <Stack spacing="8">
             <Stack alignItems="flex-start">
               <Flex>
@@ -33,13 +41,29 @@ export const Footer: React.FC<FooterProps> = (props) => {
             </Stack>
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>
-          <HStack justify="flex-end" spacing="4" alignSelf="flex-end">
-            {siteConfig.footer?.links?.map(({ href, label }) => (
+
+          <Stack
+            direction={{ base: 'column', sm: 'row' }}
+            spacing={4}
+            justify={{ base: 'flex-start', md: 'flex-end' }}
+            align={{ base: 'flex-start', md: 'center' }}
+          >
+            {/* Text Links */}
+            {textLinks.map(({ href, label }) => (
               <FooterLink key={href} href={href}>
                 {label}
               </FooterLink>
             ))}
-          </HStack>
+
+            {/* Social Icon Links */}
+            <HStack spacing={4}>
+              {iconLinks.map(({ href, label }) => (
+                <FooterLink key={href} href={href}>
+                  {label}
+                </FooterLink>
+              ))}
+            </HStack>
+          </Stack>
         </SimpleGrid>
       </Container>
     </Box>
@@ -57,7 +81,7 @@ export const Copyright: React.FC<CopyrightProps> = ({
 }: CopyrightProps) => {
   let content
   if (title && !children) {
-    content = `&copy; ${new Date().getFullYear()} - ${title}`
+    content = `© ${new Date().getFullYear()} - ${title}`
   }
   return (
     <Text color="muted" fontSize="sm">

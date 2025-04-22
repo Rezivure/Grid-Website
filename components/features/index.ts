@@ -1,1 +1,3 @@
-export * from './features'
+import FeatureSection from "./features";
+
+export default FeatureSection;
