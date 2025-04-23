@@ -21,17 +21,17 @@ const siteConfig = {
         id: 'github',
       },
       {
-        label: 'Get Help',
+        label: 'Get Support',
         href: '/help',
         id: 'help',
       },
       {
-        label: 'Blog',
+        label: 'Newsletter',
         href: 'https://rezivure.io',
         id: 'blog',
       },
       {
-        label: 'Docs',
+        label: 'Documentation',
         href: 'https://docs.mygrid.app',
         id: 'docs',
       },

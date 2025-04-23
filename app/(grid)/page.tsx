@@ -10,6 +10,7 @@ import {
   Text,
   Wrap,
   WrapItem,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import GitHubStars from '#components/extras/github-stars'
 import { Br, Link } from '@saas-ui/react'
@@ -22,12 +23,14 @@ import { FallInPlace } from '#components/motion/fall-in-place'
 import faq from '#data/faq'
 
 const Home: NextPage = () => {
+  const lightBg = useColorModeValue('gray.100', 'gray.800')
+
   return (
     <Box>
       {/* Hero */}
       <Box position="relative" overflow="hidden">
         <BackgroundGradient height="100%" zIndex={-1} />
-        <Container maxW="container.xl" pt={{ base: 20, lg: 40 }}>
+        <Container maxW="container.xl" pt={{ base: 20, lg: 40 }} pb={{ base: 20, lg: 32 }}>
           <Flex
             direction={{ base: 'column', lg: 'row' }}
             align="center"
@@ -37,15 +40,14 @@ const Home: NextPage = () => {
             {/* Copy */}
             <Box flex="1" maxW={{ base: 'full', lg: '480px' }}>
               <FallInPlace>
-              <Heading
-              as="h1"
-              fontSize={{ base: '6xl', sm: '7xl', lg: '7xl' }}
-              lineHeight="1.1"
-              textAlign={{ base: 'center', lg: 'left' }}
-            >
-              Share Your Location,<Br />Not Your Privacy.
-            </Heading>
-
+                <Heading
+                  as="h1"
+                  fontSize={{ base: '6xl', sm: '7xl', lg: '7xl' }}
+                  lineHeight="1.1"
+                  textAlign={{ base: 'center', lg: 'left' }}
+                >
+                  Share Your Location,<Br />Not Your Privacy.
+                </Heading>
               </FallInPlace>
 
               <FallInPlace delay={0.4}>
@@ -93,8 +95,8 @@ const Home: NextPage = () => {
                       />
                     </WrapItem>
                     <GitHubStars />
-
                   </Wrap>
+
                   <HStack spacing={4}>
                     <Link href="https://appstore.mygrid.app">
                       <Image
@@ -126,48 +128,48 @@ const Home: NextPage = () => {
               w="full"
             >
               <Image
-                src="/static/screenshots/iphone-mockup.png"
+                src="https://r2-static-grid-files.mygrid.app/iphone-mockup.png"
                 alt="Screenshot of Grid"
                 width={1000}
                 height={1000}
                 style={{ maxWidth: '100%', height: 'auto' }}
+                priority
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAF0lEQVR42mP8z/D/PwMDAwMTAwMjBDAAAE7UBAf+Wep0AAAAASUVORK5CYII="
               />
             </Box>
           </Flex>
         </Container>
       </Box>
-      <Box>
-  {/* Features */}
-  <Box
-    position="relative"
-    zIndex={0}
-    px={{ base: 4, lg: 0 }}
-    pb={{ base: 48, lg: 40 }}
-  >
-    <FeatureSection />
-  </Box>
 
-  <Box
-              flex="1"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              w="full"
-            >
-              <Image
-                src="/static/screenshots/tracks.png"
-                alt="tracks"
-                width={1000}
-                height={1000}
-                style={{ maxWidth: '100%', height: 'auto' }}
-              />
-            </Box>
-  {/* FAQ */}
-    <FaqSection />
+      {/* Gray Section: Features + Tracks */}
+      <Box bg={lightBg}>
+        {/* Feature Section */}
+        <Box px={{ base: 4, lg: 0 }} py={{ base: 20, lg: 28 }}>
+          <FeatureSection />
+        </Box>
 
-</Box>
+        {/* Tracks Screenshot */}
+        <Box
+          py={{ base: 20, lg: 28 }}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Image
+            src="https://r2-static-grid-files.mygrid.app/tracks.png"
+            alt="Tracks"
+            width={1000}
+            height={1000}
+            style={{ maxWidth: '100%', height: 'auto' }}
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAF0lEQVR42mP8z/D/PwMDAwMTAwMjBDAAAE7UBAf+Wep0AAAAASUVORK5CYII="
+          />
+        </Box>
+      </Box>
 
-
+      {/* FAQ Section — returns to base site background */}
+      <Box pt={{ base: 12, lg: 16 }} pb={{ base: 20, lg: 28 }}>
+        <FaqSection />
+      </Box>
     </Box>
   )
 }
