@@ -13,6 +13,7 @@ export const Faq: React.FC<FaqProps> = (props) => {
     description,
     items = [],
   } = props
+
   return (
     <Section id="faq">
       <SectionTitle title={title} description={description} />
@@ -33,11 +34,21 @@ export interface FaqItemProps {
 
 const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
   return (
-    <chakra.dl>
-      <chakra.dt fontWeight="semibold" mb="2">
+    <chakra.dl
+      bg="gray.100"
+      _dark={{ bg: 'gray.700' }}
+      p={6}
+      borderRadius="xl"
+      boxShadow="sm"
+      transition="box-shadow 0.2s ease-in-out"
+      _hover={{ boxShadow: 'md' }}
+    >
+      <chakra.dt fontWeight="semibold" mb="2" color="#00DBA4">
         {question}
       </chakra.dt>
-      <chakra.dd color="muted">{answer}</chakra.dd>
+      <chakra.dd color="gray.600" _dark={{ color: 'gray.300' }}>
+        {answer}
+      </chakra.dd>
     </chakra.dl>
   )
 }

@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: ['r2-static-grid-files.mygrid.app'],
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
