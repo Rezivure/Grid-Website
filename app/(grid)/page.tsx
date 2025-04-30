@@ -21,12 +21,18 @@ import FeatureSection from '#components/features'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import faq from '#data/faq'
+import { SEO } from '#components/seo' 
 
 const Home: NextPage = () => {
   const lightBg = useColorModeValue('gray.100', 'gray.800')
 
   return (
     <Box>
+      <SEO
+        title="Grid – Private Location Sharing"
+        description="Grid is an end-to-end encrypted location sharing app. Stay private, stay connected."
+      />
+
       {/* Hero */}
       <Box position="relative" overflow="hidden">
         <BackgroundGradient height="100%" zIndex={-1} />
