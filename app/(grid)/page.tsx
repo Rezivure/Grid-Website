@@ -21,7 +21,7 @@ import FeatureSection from '#components/features'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import faq from '#data/faq'
-import { SEO } from '#components/seo' // ✅ make sure this path matches where you export your SEO component
+import { SEO } from '#components/seo' 
 
 const Home: NextPage = () => {
   const lightBg = useColorModeValue('gray.100', 'gray.800')
