@@ -70,6 +70,11 @@ const siteConfig = {
         id: 'docs',
       },
       {
+        label: 'Donate',
+        href: '/donate',
+        id: 'donate',
+      },
+      {
         label: 'Get Grid',
         href: 'https://get.grid.lat',
         variant: 'primary',
