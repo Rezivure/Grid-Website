@@ -1,5 +1,6 @@
 // app/(grid)/layout.tsx
 import { ReactNode } from 'react'
+import { MarketingLayout } from '#components/layout'
 
 export const metadata = {
   title: 'Grid – Private Location Sharing',
@@ -36,5 +37,5 @@ export const metadata = {
 }
 
 export default function GridLayout({ children }: { children: ReactNode }) {
-  return <>{children}</>
+  return <MarketingLayout>{children}</MarketingLayout>
 }
