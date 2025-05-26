@@ -1,0 +1,33 @@
+# Grid Robots.txt
+# https://mygrid.app
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /deleteaccount
+Disallow: /_next/
+Disallow: /static/js/
+Disallow: /static/css/
+
+# Sitemaps
+Sitemap: https://mygrid.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Major Search Engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1

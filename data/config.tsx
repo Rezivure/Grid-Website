@@ -60,6 +60,11 @@ const siteConfig = {
         id: 'help',
       },
       {
+        label: 'Feedback',
+        href: '/feedback',
+        id: 'feedback',
+      },
+      {
         label: 'Newsletter',
         href: 'https://rezivure.io',
         id: 'blog',

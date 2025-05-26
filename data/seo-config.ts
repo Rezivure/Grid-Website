@@ -1,0 +1,121 @@
+export const seoConfig = {
+  site: {
+    name: 'Grid',
+    url: 'https://mygrid.app',
+    logo: 'https://mygrid.app/static/favicons/favicon.ico',
+    description: 'Grid is an end-to-end encrypted (E2EE) location sharing app that provides private, secure location tracking without compromising your privacy. Unlike other apps, Grid never tracks or sells your data.',
+  },
+  twitter: {
+    handle: '@MyGridHQ',
+    site: '@MyGridHQ',
+    cardType: 'summary_large_image',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    site_name: 'Grid',
+  },
+  keywords: {
+    primary: [
+      'private location sharing',
+      'e2ee location sharing',
+      'encrypted location sharing',
+      'secure location tracking',
+      'end-to-end encrypted location',
+      'private family tracker',
+      'secure location app',
+      'privacy-focused location sharing',
+      'encrypted GPS tracking',
+      'private location tracker',
+    ],
+    secondary: [
+      'life360 alternative',
+      'private family locator',
+      'secure family tracking',
+      'encrypted family app',
+      'privacy location app',
+      'anonymous location sharing',
+      'secure GPS sharing',
+      'e2e encrypted tracker',
+      'private gps app',
+      'secure location finder',
+    ],
+  },
+  pages: {
+    home: {
+      title: 'Grid - Private E2EE Location Sharing | Encrypted GPS Tracking',
+      description: 'Grid offers end-to-end encrypted location sharing for privacy-conscious users. Share your location securely with E2EE technology. No tracking, no data selling, just private location sharing.',
+      keywords: ['private location sharing', 'e2ee location sharing', 'encrypted location sharing', 'secure location tracking', 'end-to-end encrypted GPS'],
+      image: 'https://r2-static-grid-files.mygrid.app/iphone-mockup.png',
+    },
+    about: {
+      title: 'About Grid - Secure Encrypted Location Sharing App',
+      description: 'Learn about Grid, the privacy-first E2EE location sharing app. We provide encrypted location tracking without compromising your privacy or selling your data.',
+      keywords: ['about grid app', 'private location app', 'encrypted gps tracking', 'secure family tracker'],
+    },
+    privacy: {
+      title: 'Privacy Policy - Grid E2EE Location Sharing',
+      description: 'Grid\'s privacy policy explains how we protect your location data with end-to-end encryption. Your private location data stays encrypted and secure.',
+      keywords: ['grid privacy policy', 'encrypted location privacy', 'e2ee privacy', 'secure location data'],
+    },
+    terms: {
+      title: 'Terms of Service - Grid Private Location Sharing',
+      description: 'Terms and conditions for using Grid\'s encrypted location sharing service. Understand your rights and our commitment to private, secure location tracking.',
+      keywords: ['grid terms', 'location sharing terms', 'encrypted app terms'],
+    },
+    help: {
+      title: 'Support - Grid E2EE Location Sharing Help',
+      description: 'Get help with Grid\'s encrypted location sharing features. Learn how to use private location tracking, self-hosting options, and troubleshooting.',
+      keywords: ['grid support', 'location sharing help', 'encrypted app support', 'e2ee help'],
+    },
+    donate: {
+      title: 'Support Grid - Help Keep Location Sharing Private',
+      description: 'Support Grid\'s mission to provide private, encrypted location sharing for everyone. Your donation helps maintain our E2EE infrastructure and keep the app free.',
+      keywords: ['support grid', 'donate encrypted app', 'private location app donation'],
+    },
+    feedback: {
+      title: 'Feedback - Help Improve Grid\'s Encrypted Location Sharing',
+      description: 'Share your feedback about Grid\'s private location sharing features. Help us improve E2EE location tracking and maintain your privacy.',
+      keywords: ['grid feedback', 'location app feedback', 'encrypted app suggestions'],
+    },
+    report: {
+      title: 'Report Abuse - Grid Secure Location Sharing',
+      description: 'Report any abuse or misuse of Grid\'s encrypted location sharing platform. We take security and privacy violations seriously.',
+      keywords: ['report abuse', 'grid security', 'location sharing abuse'],
+    },
+  },
+  structuredData: {
+    organization: {
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Grid',
+      url: 'https://mygrid.app',
+      logo: 'https://mygrid.app/static/favicons/favicon.ico',
+      sameAs: [
+        'https://github.com/rezivure/grid-mobile',
+        'https://twitter.com/MyGridHQ',
+        'https://mastodon.social/@getgrid',
+        'https://bsky.app/profile/getgrid.bsky.social',
+      ],
+      description: 'Grid provides end-to-end encrypted location sharing for privacy-conscious users.',
+    },
+    webApplication: {
+      '@context': 'https://schema.org',
+      '@type': 'WebApplication',
+      name: 'Grid',
+      operatingSystem: 'iOS, Android',
+      applicationCategory: 'UtilitiesApplication',
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'USD',
+      },
+      description: 'End-to-end encrypted location sharing app for private, secure location tracking.',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.8',
+        ratingCount: '1250',
+      },
+    },
+  },
+}
