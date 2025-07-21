@@ -2,10 +2,10 @@
 
 import { Box, Container, Heading, VStack, Text, Button, Card, CardBody, Icon, useToast } from '@chakra-ui/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { FiCheckCircle } from 'react-icons/fi';
 
-export default function SuccessPage() {
+function SuccessContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const toast = useToast();
@@ -95,5 +95,13 @@ export default function SuccessPage() {
         </Card>
       </VStack>
     </Container>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<Container maxW="2xl" py={20}><Text>Loading...</Text></Container>}>
+      <SuccessContent />
+    </Suspense>
   );
 }
