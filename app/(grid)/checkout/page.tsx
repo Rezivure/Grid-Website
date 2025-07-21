@@ -3,7 +3,7 @@
 import { Button } from '@chakra-ui/react';
 import { Box, Container, Heading, VStack, Text, Card, CardBody, HStack, useToast, Radio, RadioGroup, Stack, Divider } from '@chakra-ui/react';
 import { loadStripe } from '@stripe/stripe-js';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
@@ -35,7 +35,7 @@ const pricingOptions: PricingOption[] = [
   },
 ];
 
-export default function CheckoutPage() {
+function CheckoutContent() {
   const [selectedPriceId, setSelectedPriceId] = useState(pricingOptions[0].priceId);
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
@@ -207,5 +207,13 @@ export default function CheckoutPage() {
         </Card>
       </VStack>
     </Container>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CheckoutContent />
+    </Suspense>
   );
 }
