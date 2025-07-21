@@ -2,7 +2,8 @@
 
 import { Box, Container, Heading, VStack, Text, Button, Card, CardBody, useToast, Spinner, HStack, Badge } from '@chakra-ui/react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+
 
 interface SubscriptionData {
   status: 'active' | 'canceled' | 'past_due' | 'none';
@@ -13,7 +14,7 @@ interface SubscriptionData {
   autoRenew?: boolean;
 }
 
-export default function ManagePage() {
+function ManageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const toast = useToast();
@@ -241,5 +242,13 @@ export default function ManagePage() {
         </Card>
       </VStack>
     </Container>
+  );
+}
+
+export default function ManagePage() {
+  return (
+    <Suspense fallback={<Container maxW="2xl" py={20}><Spinner size="xl" /></Container>}>
+      <ManageContent />
+    </Suspense>
   );
 }

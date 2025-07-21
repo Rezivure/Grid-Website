@@ -6,6 +6,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
+
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 interface PricingOption {
@@ -212,7 +213,7 @@ function CheckoutContent() {
 
 export default function CheckoutPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Container maxW="2xl" py={20}><Text>Loading...</Text></Container>}>
       <CheckoutContent />
     </Suspense>
   );
