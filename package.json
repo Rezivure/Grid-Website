@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "NEXT_DISABLE_ESLINT=1 next build",
     "start": "next start",
-    "lint": "next lint"    
+    "lint": "next lint"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.10.1",
@@ -17,6 +17,7 @@
     "@fontsource-variable/inter": "^5.1.0",
     "@saas-ui/auth": "^3.4.0",
     "@saas-ui/react": "^2.9.0",
+    "@stripe/stripe-js": "^7.4.0",
     "@svgr/webpack": "^8.1.0",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.11.1",
@@ -26,6 +27,7 @@
     "react-dom": "18.3.1",
     "react-icons": "^5.3.0",
     "react-remove-scroll": "^2.6.0",
+    "stripe": "^18.2.1",
     "velite": "^0.1.1"
   },
   "devDependencies": {
