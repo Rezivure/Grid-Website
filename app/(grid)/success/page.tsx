@@ -25,20 +25,13 @@ function SuccessContent() {
   }, [sessionId]);
 
   const handleReturnToApp = () => {
-    // Deep link back to the app
-    const deepLink = 'grid://subscription/success';
-    window.location.href = deepLink;
-    
-    // Fallback: show instructions after a delay
-    setTimeout(() => {
-      toast({
-        title: 'Return to Grid App',
-        description: 'Please return to the Grid app to start using satellite maps.',
-        status: 'info',
-        duration: null,
-        isClosable: true,
-      });
-    }, 1000);
+    toast({
+      title: 'Return to Grid App',
+      description: 'Please return to the Grid app to start using satellite maps.',
+      status: 'info',
+      duration: null,
+      isClosable: true,
+    });
   };
 
   return (
@@ -66,15 +59,6 @@ function SuccessContent() {
                   </Text>
 
                   <VStack spacing={3} w="full">
-                    <Button
-                      size="lg"
-                      colorScheme="blue"
-                      onClick={handleReturnToApp}
-                      w="full"
-                    >
-                      Return to Grid App
-                    </Button>
-                    
                     <Button
                       size="lg"
                       variant="outline"
