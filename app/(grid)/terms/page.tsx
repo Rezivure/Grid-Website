@@ -104,7 +104,7 @@ export default function TermsPage() {
             Managing Subscriptions
           </Heading>
           <UnorderedList spacing={2} pl={4}>
-            <ListItem>iOS: Manage subscriptions in Settings > [Your Name] > Subscriptions</ListItem>
+            <ListItem>iOS: Manage subscriptions in Settings {'>'}  [Your Name] {'>'} Subscriptions</ListItem>
             <ListItem>Android/Web: Manage subscriptions through the link provided in your subscription email</ListItem>
           </UnorderedList>
         </Section>
