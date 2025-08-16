@@ -28,7 +28,7 @@ export default function TermsPage() {
       <VStack spacing={8} align="start" width="100%">
         <Box textAlign="left" width="100%" mb={8}>
         <Section title="Terms of Service">
-           Last Updated: October 4th, 2024
+           Last Updated: August 16, 2025
           </Section>
           <Text>
             Welcome to Grid! Please read these Terms of Service ("Terms") carefully before using our website, mobile applications, or any services provided by Grid ("the Service"). By accessing or using the Service, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the Service.
@@ -72,19 +72,56 @@ export default function TermsPage() {
           </UnorderedList>
         </Section>
 
-        <Section title="6. Data Sharing and End-to-End Encryption">
+        <Section title="6. Subscriptions and Payments">
+          <Heading as="h3" size="md" mb={4}>
+            Subscription Services
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>Grid offers an optional subscription for Satellite Maps at $4.99 USD per month</ListItem>
+            <ListItem>Core features of Grid (location sharing, end-to-end encryption, standard maps) are free and will always remain free</ListItem>
+            <ListItem>Satellite Maps is a cosmetic enhancement and not required for app functionality</ListItem>
+          </UnorderedList>
+
+          <Heading as="h3" size="md" mb={4}>
+            Payment Processing
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>iOS Users: Payments are processed through Apple's In-App Purchase system. Apple handles all payment processing and Grid does not have access to your payment information</ListItem>
+            <ListItem>Android/Web Users: Payments are processed through Stripe. Grid does not store credit card details; all payment information is securely handled by Stripe</ListItem>
+          </UnorderedList>
+
+          <Heading as="h3" size="md" mb={4}>
+            Subscription Terms
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>Subscriptions automatically renew monthly unless canceled</ListItem>
+            <ListItem>You may cancel your subscription at any time through your device's account settings</ListItem>
+            <ListItem>Cancellation must be made at least 24 hours before the end of the current period to avoid renewal</ListItem>
+            <ListItem>No refunds for partial months</ListItem>
+          </UnorderedList>
+
+          <Heading as="h3" size="md" mb={4}>
+            Managing Subscriptions
+          </Heading>
+          <UnorderedList spacing={2} pl={4}>
+            <ListItem>iOS: Manage subscriptions in Settings > [Your Name] > Subscriptions</ListItem>
+            <ListItem>Android/Web: Manage subscriptions through the link provided in your subscription email</ListItem>
+          </UnorderedList>
+        </Section>
+
+        <Section title="7. Data Sharing and End-to-End Encryption">
           <Text>
             The Service provides end-to-end encryption to protect the locations shared between users. Grid cannot access or decrypt the location data. By using the Service, you acknowledge and accept that you are responsible for the locations you share and whom you share them with. While we make every effort to ensure data security, you agree to use the Service at your own risk.
           </Text>
         </Section>
 
-        <Section title="7. Disclaimer of Warranties">
+        <Section title="8. Disclaimer of Warranties">
           <Text>
             The Service is provided on an "as is" and "as available" basis. Grid makes no warranties, expressed or implied, regarding the Service, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
           </Text>
         </Section>
 
-        <Section title="8. Limitation of Liability">
+        <Section title="9. Limitation of Liability">
           <Text>
             To the fullest extent permitted by law, Grid and its affiliates, officers, directors, employees, and agents will not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of your access to or use of the Service, even if Grid has been advised of the possibility of such damages.
           </Text>
