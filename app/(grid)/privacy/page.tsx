@@ -28,7 +28,7 @@ export default function PrivacyPage() {
       <VStack spacing={8} align="start" width="100%">
         <Box textAlign="left" width="100%" mb={8}>
         <Section title="Privacy Policy">
-           Effective Date: October 4th, 2024
+           Effective Date: August 16, 2025
           </Section>
           <Text>
             If you are here, good on you. You value privacy like us. Please feel free to read our policy, it is short-and reach out to us with any questions!
@@ -77,7 +77,39 @@ export default function PrivacyPage() {
           </Text>
         </Section>
 
-        <Section title="5. Data Security">
+        <Section title="5. Payment Information">
+          <Heading as="h3" size="md" mb={4}>
+            What We Don't Collect
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>Grid never directly collects or stores credit card numbers, banking details, or other payment information</ListItem>
+            <ListItem>We do not have access to your Apple ID payment information</ListItem>
+            <ListItem>We do not store Stripe payment details on our servers</ListItem>
+          </UnorderedList>
+
+          <Heading as="h3" size="md" mb={4}>
+            Payment Processing
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>iOS Users: All payments are processed by Apple through their In-App Purchase system. Apple's privacy policy governs their collection and use of your payment information</ListItem>
+            <ListItem>Android/Web Users: Payments are processed by Stripe, Inc. Your payment information is transmitted directly to Stripe and is subject to Stripe's privacy policy</ListItem>
+          </UnorderedList>
+
+          <Heading as="h3" size="md" mb={4}>
+            Subscription Data We Store
+          </Heading>
+          <UnorderedList spacing={2} pl={4} mb={4}>
+            <ListItem>User ID associated with the subscription</ListItem>
+            <ListItem>Subscription status (active/inactive)</ListItem>
+            <ListItem>Subscription start and end dates</ListItem>
+            <ListItem>Subscription type (e.g., Satellite Maps)</ListItem>
+          </UnorderedList>
+          <Text>
+            This minimal subscription data is stored solely to provide you with the subscribed features and is never shared with third parties.
+          </Text>
+        </Section>
+
+        <Section title="6. Data Security">
           <Text>
             We take appropriate security measures to protect your personal information. All location data is encrypted end-to-end. While we strive to use commercially acceptable means to protect your data, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
           </Text>
