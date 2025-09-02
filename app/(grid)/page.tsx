@@ -11,6 +11,7 @@ import {
   Wrap,
   WrapItem,
   useColorModeValue,
+  VStack,
 } from '@chakra-ui/react'
 import GitHubStars from '#components/extras/github-stars'
 import { Br, Link } from '@saas-ui/react'
@@ -21,6 +22,7 @@ import FeatureSection from '#components/features'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import faq from '#data/faq'
+import { FaDiscord } from 'react-icons/fa'
  
 
 const Home: NextPage = () => {
@@ -116,6 +118,34 @@ const Home: NextPage = () => {
                       />
                     </Link>
                   </HStack>
+
+                  {/* Discord Section - Mobile Only */}
+                  <Box display={{ base: 'flex', lg: 'none' }} justifyContent="center" mt={6}>
+                    <Link
+                      href="https://discord.gg/cJrQXMn6Hk"
+                      _hover={{ transform: 'scale(1.05)', transition: 'transform 0.2s' }}
+                    >
+                      <HStack
+                        spacing={2}
+                        bg="rgba(88, 101, 242, 0.1)"
+                        px={5}
+                        py={2.5}
+                        borderRadius="full"
+                        border="2px solid"
+                        borderColor="#5865F2"
+                        _hover={{ bg: 'rgba(88, 101, 242, 0.2)' }}
+                      >
+                        <FaDiscord size={22} color="#5865F2" />
+                        <Text
+                          fontWeight="semibold"
+                          fontSize="md"
+                          color="#5865F2"
+                        >
+                          Join our Discord
+                        </Text>
+                      </HStack>
+                    </Link>
+                  </Box>
                 </Stack>
               </FallInPlace>
             </Box>
