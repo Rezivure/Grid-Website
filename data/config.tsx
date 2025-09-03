@@ -55,19 +55,9 @@ const siteConfig = {
         id: 'github',
       },
       {
-        label: 'Get Support',
-        href: '/help',
-        id: 'help',
-      },
-      {
-        label: 'Feedback',
-        href: '/feedback',
-        id: 'feedback',
-      },
-      {
-        label: 'Newsletter',
-        href: 'https://rezivure.io',
-        id: 'blog',
+        label: 'Privacy',
+        href: '/privacy',
+        id: 'privacy',
       },
       {
         label: 'Documentation',
@@ -80,10 +70,10 @@ const siteConfig = {
         id: 'donate',
       },
       {
-        label: 'Get Grid',
-        href: 'https://get.grid.lat',
+        label: 'Discord',
+        href: 'https://discord.gg/cJrQXMn6Hk',
         variant: 'primary',
-        id: 'get-grid',
+        id: 'discord-nav',
       },
     ],
   },

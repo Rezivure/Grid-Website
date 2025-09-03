@@ -6,13 +6,16 @@ import {
   Heading,
   Text,
   VStack,
+  HStack,
   useColorModeValue,
   Icon,
   Flex,
 } from '@chakra-ui/react'
 import { useEffect } from 'react'
 import { FiMessageSquare, FiHeart, FiTarget } from 'react-icons/fi'
+import { FaDiscord } from 'react-icons/fa'
 import { FallInPlace } from '#components/motion/fall-in-place'
+import { Link } from '@saas-ui/react'
 
 const FeatureCard = ({ icon, title, description }) => (
   <Flex gap={4} p={6} borderRadius="lg" bg={useColorModeValue('white', 'gray.800')} shadow="sm">
@@ -63,6 +66,26 @@ export default function FeedbackPage() {
               Your input helps us make Grid better for everyone. Whether it's a feature request, 
               bug report, or general feedback, we're listening.
             </Text>
+            
+            {/* Discord CTA */}
+            <HStack spacing={1} pt={4}>
+              <Text fontSize="lg" color="gray.500">
+                Rather have a conversation? Join our
+              </Text>
+              <Link
+                href="https://discord.gg/cJrQXMn6Hk"
+                _hover={{ transform: 'scale(1.05)', transition: 'transform 0.2s', textDecoration: 'none' }}
+                display="inline-flex"
+                alignItems="center"
+              >
+                <HStack spacing={1}>
+                  <FaDiscord size={22} color="#5865F2" />
+                  <Text fontSize="lg" color="#5865F2" fontWeight="semibold">
+                    Discord
+                  </Text>
+                </HStack>
+              </Link>
+            </HStack>
           </Box>
         </FallInPlace>
 
