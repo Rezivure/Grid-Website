@@ -19,15 +19,17 @@ const Section = ({
   title,
   children,
   icon,
+  headingColor,
+  iconColor,
+  borderColor,
 }: {
   title: string
   children: React.ReactNode
   icon?: any
+  headingColor: string
+  iconColor: string
+  borderColor: string
 }) => {
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const iconColor = useColorModeValue('green.500', 'green.400')
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
-
   return (
     <Box mb={20} position="relative">
       <Box
@@ -139,7 +141,7 @@ export function TermsContent() {
 
           {/* Content Sections */}
           <Box w="full">
-            <Section title="Introduction">
+            <Section title="Introduction" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('blue.50', 'blue.950')}
                 borderLeft="4px solid"
@@ -154,7 +156,7 @@ export function TermsContent() {
               </Box>
             </Section>
 
-            <Section title="1. Acceptance of Terms">
+            <Section title="1. Acceptance of Terms" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 By accessing or using the Service, you confirm that you are at least 13 years of age.
                 If you are between 13 and 18 years old, you may only use the Service with the consent
@@ -164,7 +166,7 @@ export function TermsContent() {
               </Text>
             </Section>
 
-            <Section title="2. Privacy Policy">
+            <Section title="2. Privacy Policy" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 Your use of the Service is subject to our Privacy Policy, which is incorporated into
                 these Terms by reference. Please review the Privacy Policy to understand how we collect,
@@ -172,7 +174,7 @@ export function TermsContent() {
               </Text>
             </Section>
 
-            <Section title="3. Description of Service">
+            <Section title="3. Description of Service" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 Grid is a location-sharing application that offers end-to-end encryption (E2EE) to
                 protect user data. Our Service allows users to share their location in a secure and
@@ -180,7 +182,7 @@ export function TermsContent() {
               </Text>
             </Section>
 
-            <Section title="4. User Accounts and Security">
+            <Section title="4. User Accounts and Security" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 You may need to create an account to access certain features of the Service. You are
                 responsible for maintaining the confidentiality of your account credentials and for all
@@ -189,7 +191,7 @@ export function TermsContent() {
               </Text>
             </Section>
 
-            <Section title="5. User Conduct">
+            <Section title="5. User Conduct" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text mb={6} fontSize="md" color={textColor}>
                 By using the Service, you agree that you will not:
               </Text>
@@ -210,7 +212,7 @@ export function TermsContent() {
               </Box>
             </Section>
 
-            <Section title="6. Subscriptions and Payments">
+            <Section title="6. Subscriptions and Payments" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <VStack align="start" spacing={6}>
                 <Box>
                   <Heading
@@ -301,7 +303,7 @@ export function TermsContent() {
               </VStack>
             </Section>
 
-            <Section title="7. Data Sharing and End-to-End Encryption">
+            <Section title="7. Data Sharing and End-to-End Encryption" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('purple.50', 'purple.950')}
                 p={8}
@@ -329,7 +331,7 @@ export function TermsContent() {
               </Box>
             </Section>
 
-            <Section title="8. Disclaimer of Warranties">
+            <Section title="8. Disclaimer of Warranties" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 The Service is provided on an "as is" and "as available" basis. Grid makes no warranties,
                 expressed or implied, regarding the Service, including but not limited to warranties of
@@ -337,7 +339,7 @@ export function TermsContent() {
               </Text>
             </Section>
 
-            <Section title="9. Limitation of Liability">
+            <Section title="9. Limitation of Liability" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
                 To the fullest extent permitted by law, Grid and its affiliates, officers, directors,
                 employees, and agents will not be liable for any indirect, incidental, special, consequential,

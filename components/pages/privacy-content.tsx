@@ -21,17 +21,19 @@ const Section = ({
   title,
   children,
   icon,
-  isNumbered = false
+  isNumbered = false,
+  headingColor,
+  iconColor,
+  borderColor,
 }: {
   title: string;
   children: React.ReactNode;
   icon?: any;
   isNumbered?: boolean;
+  headingColor: string;
+  iconColor: string;
+  borderColor: string;
 }) => {
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const iconColor = useColorModeValue('green.500', 'green.400')
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
-
   return (
     <Box mb={20} position="relative">
       <Box
@@ -143,7 +145,7 @@ export function PrivacyContent() {
 
           {/* Content Sections */}
           <Box w="full">
-            <Section title="Introduction">
+            <Section title="Introduction" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('blue.50', 'blue.950')}
                 borderLeft="4px solid"
@@ -157,7 +159,7 @@ export function PrivacyContent() {
               </Box>
             </Section>
 
-            <Section title="1. Information We Collect" icon={FiLock}>
+            <Section title="1. Information We Collect" icon={FiLock} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text mb={8} fontSize="md" color={textColor}>
                 We collect only the minimal personal information necessary to provide the App's services:
               </Text>
@@ -177,7 +179,7 @@ export function PrivacyContent() {
               </Box>
             </Section>
 
-            <Section title="2. Information We DON'T Collect" icon={FiShield}>
+            <Section title="2. Information We DON'T Collect" icon={FiShield} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text mb={8} fontSize="md" color={textColor}>
                 Your privacy is our priority. Here's what we never see or store:
               </Text>
@@ -197,7 +199,7 @@ export function PrivacyContent() {
               </Box>
             </Section>
 
-            <Section title="3. End-to-End Encryption (E2EE)" icon={FiLock}>
+            <Section title="3. End-to-End Encryption (E2EE)" icon={FiLock} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('purple.50', 'purple.950')}
                 p={8}
@@ -222,19 +224,19 @@ export function PrivacyContent() {
               </Box>
             </Section>
 
-            <Section title="4. Map Services and Cloudflare">
+            <Section title="4. Map Services and Cloudflare" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize={{ base: 'md', lg: 'lg' }} color={textColor} lineHeight="relaxed">
                 Grid hosts its own map tile server on Cloudflare using Protomaps to provide map services. We do not log your location or map usage data, but Cloudflare may log anonymized information such as IP addresses or requests for technical performance purposes. This logging is managed by Cloudflare and is outside our control. Please refer to Cloudflare's Privacy Policy for more details on how they handle data and our About Map Data page to learn more.
               </Text>
             </Section>
 
-            <Section title="5. Self-Hosting" icon={FiServer}>
+            <Section title="5. Self-Hosting" icon={FiServer} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="relaxed">
                 Grid is designed to allow users to host their own backend/Matrix server. If you choose to use your own server or another third-party server, please be aware that Grid is not responsible for the privacy, security, or handling of your data on those servers. Your location data and other personal information may be at risk if the server you use is not properly secured or managed.
               </Text>
             </Section>
 
-            <Section title="6. Payment Information" icon={FiCreditCard}>
+            <Section title="6. Payment Information" icon={FiCreditCard} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <VStack align="start" spacing={6}>
                 <Box>
                   <Heading
@@ -296,7 +298,7 @@ export function PrivacyContent() {
               </VStack>
             </Section>
 
-            <Section title="7. Donation Privacy">
+            <Section title="7. Donation Privacy" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text mb={8} fontSize="md" color={textColor}>
                 We respect and protect the privacy of everyone who supports Grid's mission through donations.
               </Text>
@@ -319,7 +321,7 @@ export function PrivacyContent() {
               </Box>
             </Section>
 
-            <Section title="8. Data Security">
+            <Section title="8. Data Security" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize={{ base: 'md', lg: 'lg' }} color={textColor} lineHeight="relaxed">
                 We take appropriate security measures to protect your personal information. All location data is encrypted end-to-end. While we strive to use commercially acceptable means to protect your data, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.
               </Text>

@@ -25,6 +25,8 @@ export default function DonatePage() {
   const accentColor = useColorModeValue('red.500', 'red.400')
   const borderColor = useColorModeValue('gray.200', 'gray.700')
   const cardBg = useColorModeValue('gray.50', 'gray.800')
+  const greenBadgeBg = useColorModeValue('green.50', 'green.900')
+  const greenBadgeColor = useColorModeValue('green.600', 'green.300')
 
   return (
     <Box bg={bgColor} minH="100vh">
@@ -86,8 +88,8 @@ export default function DonatePage() {
                   key={item}
                   px={3}
                   py={2}
-                  bg={useColorModeValue('green.50', 'green.900')}
-                  color={useColorModeValue('green.600', 'green.300')}
+                  bg={greenBadgeBg}
+                  color={greenBadgeColor}
                   fontSize="sm"
                   fontWeight="semibold"
                   borderRadius="full"

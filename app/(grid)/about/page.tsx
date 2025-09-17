@@ -20,15 +20,17 @@ const Section = ({
   title,
   children,
   icon,
+  headingColor,
+  iconColor,
+  borderColor,
 }: {
   title: string
   children: React.ReactNode
   icon?: React.ComponentType
+  headingColor: string
+  iconColor: string
+  borderColor: string
 }) => {
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const iconColor = useColorModeValue('green.500', 'green.400')
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
-
   return (
     <Box mb={20} position="relative">
       <Box
@@ -128,7 +130,7 @@ export default function AboutPage() {
 
           {/* Content Sections */}
           <Box w="full">
-            <Section title="Our Mission" icon={FiTarget}>
+            <Section title="Our Mission" icon={FiTarget} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('blue.50', 'blue.950')}
                 borderLeft="4px solid"
@@ -153,7 +155,7 @@ export default function AboutPage() {
               </Text>
             </Section>
 
-            <Section title="Who We Are" icon={FiUsers}>
+            <Section title="Who We Are" icon={FiUsers} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('purple.50', 'purple.950')}
                 p={8}
@@ -183,7 +185,7 @@ export default function AboutPage() {
               </Text>
             </Section>
 
-            <Section title="Why Grid" icon={FiShield}>
+            <Section title="Why Grid" icon={FiShield} headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Box
                 bg={useColorModeValue('green.50', 'green.950')}
                 p={6}
