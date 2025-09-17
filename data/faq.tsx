@@ -43,11 +43,13 @@ const faq = {
       q: 'Can I use Grid on GrapheneOS?',
       a: (
         <>
-          Currently, Grid requires Google Play Services for location functionality. 
-          However, we're actively working on removing this dependency to better align 
-          with our privacy-focused vision and to support privacy-conscious operating 
-          systems like GrapheneOS. We'll announce when this update is available - 
-          making Grid fully compatible with de-Googled devices is a priority for us.
+          Grid currently requires Google Play Services for location functionality due to
+          our initial implementation using a third-party location plugin. Some GrapheneOS
+          users have reported success by enabling sandboxed Google Play Services on their
+          devices. We understand this dependency conflicts with our privacy mission, and
+          we're actively working to replace it with a Google-free alternative. This
+          technical debt from our bootstrap phase is a top priority to resolve, and we'll
+          announce when Grid becomes fully compatible with de-Googled devices.
         </>
       ),
     },
@@ -67,9 +69,21 @@ const faq = {
       q: 'Can I self-host Grid?',
       a: (
         <>
-          Yes! While Grid works by default with our servers using SMS verification, 
-          you can self-host your own instance. Check our documentation for detailed 
+          Yes! While Grid works by default with our servers using SMS verification,
+          you can self-host your own instance. Check our documentation for detailed
           self-hosting instructions and best practices.
+        </>
+      ),
+    },
+    {
+      q: 'Is Grid free to use?',
+      a: (
+        <>
+          Yes! Grid is completely free to use with all core features including
+          real-time location sharing, unlimited groups, and end-to-end encryption.
+          We offer an optional satellite maps addon for $4.99/month for those who
+          want enhanced map imagery - this helps support ongoing development while
+          keeping Grid free for everyone. No features are locked behind a paywall.
         </>
       ),
     }

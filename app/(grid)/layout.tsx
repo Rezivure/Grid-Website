@@ -6,11 +6,24 @@ import { seoConfig } from '#data/seo-config'
 export const metadata = {
   metadataBase: new URL(seoConfig.site.url),
   title: {
-    default: seoConfig.pages.home.title,
-    template: '%s | Grid - E2EE Location Sharing',
+    default: 'Grid - E2EE Location Sharing App | End-to-End Encrypted GPS Tracking',
+    template: '%s | Grid E2EE Location Sharing',
   },
-  description: seoConfig.pages.home.description,
-  keywords: seoConfig.pages.home.keywords,
+  description: 'Grid is the leading end-to-end encrypted (E2EE) location sharing app. Share GPS location privately with military-grade E2EE encryption. Open source, self-hostable, zero tracking.',
+  keywords: [
+    'e2ee location sharing',
+    'end-to-end encrypted location sharing',
+    'e2ee location app',
+    'end to end encrypted gps',
+    'grid e2ee',
+    'encrypted location sharing app',
+    'e2ee gps tracking',
+    'end-to-end encryption location',
+    'secure e2ee location',
+    'private location sharing e2ee',
+    'grid location app',
+    'mygrid app'
+  ],
   authors: [{ name: 'Rezivure LLC' }],
   creator: 'Rezivure LLC',
   publisher: 'Rezivure LLC',
