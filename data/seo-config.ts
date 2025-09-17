@@ -57,7 +57,7 @@ export const seoConfig = {
         'secure e2ee location',
         'private location sharing e2ee'
       ],
-      image: 'https://r2-static-grid-files.mygrid.app/iphone-mockup.png',
+      image: 'https://r2-static-grid-files.mygrid.app/mocknew2.svg',
     },
     about: {
       title: 'About Grid - Secure Encrypted Location Sharing App',
@@ -130,7 +130,7 @@ export const seoConfig = {
         bestRating: '5',
         worstRating: '1',
       },
-      screenshot: 'https://r2-static-grid-files.mygrid.app/iphone-mockup.png',
+      screenshot: 'https://r2-static-grid-files.mygrid.app/mocknew2.svg',
       featureList: [
         'End-to-end encryption (E2EE)',
         'Private location sharing',

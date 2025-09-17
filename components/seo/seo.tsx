@@ -28,14 +28,14 @@ export const SEO = ({ title, description, canonical }: SEOProps) => {
       <meta property="og:description" content={descriptionToUse} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalToUse} />
-      <meta property="og:image" content="https://r2-static-grid-files.mygrid.app/iphone-mockup.png" />
+      <meta property="og:image" content="https://r2-static-grid-files.mygrid.app/mocknew2.svg" />
       <meta property="og:site_name" content="Grid" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@MyGridHQ" />
       <meta name="twitter:title" content={titleToUse} />
       <meta name="twitter:description" content={descriptionToUse} />
-      <meta name="twitter:image" content="https://r2-static-grid-files.mygrid.app/iphone-mockup.png" />
+      <meta name="twitter:image" content="https://r2-static-grid-files.mygrid.app/mocknew2.svg" />
 
       <link rel="canonical" href={canonicalToUse} />
     </Head>

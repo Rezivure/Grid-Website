@@ -49,7 +49,7 @@ const Section = ({
         {icon && (
           <Box
             p={3}
-            bg={useColorModeValue(`${iconColor}10`, `${iconColor}20`)}
+            bg={`${iconColor}15`}
             borderRadius="xl"
             display="inline-flex"
             boxShadow="sm"
