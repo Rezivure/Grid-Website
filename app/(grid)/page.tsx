@@ -10,26 +10,50 @@ import {
   Text,
   Wrap,
   WrapItem,
-  useColorModeValue,
-  VStack,
+  Icon,
 } from '@chakra-ui/react'
+import { FiChevronDown } from 'react-icons/fi'
+import { keyframes } from '@emotion/react'
 import GitHubStars from '#components/extras/github-stars'
 import { Br, Link } from '@saas-ui/react'
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { Faq } from '#components/faq'
-import FeatureSection from '#components/features'
+import { ModernFaq } from '#components/faq/modern-faq'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import faq from '#data/faq'
+import React from 'react'
 import { FaDiscord } from 'react-icons/fa'
- 
+import NewsBanner from '#components/news-banner'
+import { PrivacyFeatures } from '#components/pages/privacy-features'
+import { TrustSection } from '#components/pages/trust-section'
+import { SecurityAuditSection } from '#components/pages/security-audit-section'
+import { FinalCTASection } from '#components/pages/final-cta-section'
+
+const bounce = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+`
 
 const Home: NextPage = () => {
-  const lightBg = useColorModeValue('gray.100', 'gray.800')
 
   return (
     <Box>
+      {/* News Banner - Fixed Overlay */}
+      <Box
+        position="fixed"
+        top={{ base: '70px', sm: '75px', lg: '90px' }}
+        left="0"
+        right="0"
+        zIndex={40}
+      >
+        <NewsBanner />
+      </Box>
+
       {/* Hero */}
       <Box position="relative" overflow="hidden">
         <BackgroundGradient height="100%" zIndex={-1} />
@@ -46,7 +70,9 @@ const Home: NextPage = () => {
                 <Heading
                   as="h1"
                   fontSize={{ base: '6xl', sm: '7xl', lg: '7xl' }}
-                  lineHeight="1.1"
+                  fontWeight="black"
+                  lineHeight="1"
+                  letterSpacing="tight"
                   textAlign={{ base: 'center', lg: 'left' }}
                 >
                   Share Your Location,<Br />Not Your Privacy.
@@ -55,14 +81,18 @@ const Home: NextPage = () => {
 
               <FallInPlace delay={0.4}>
                 <Text
-                  fontSize={{ base: 'lg', lg: 'xl' }}
+                  fontSize={{ base: 'lg', md: 'xl' }}
                   mt={6}
                   textAlign={{ base: 'center', lg: 'left' }}
+                  color="gray.600"
+                  _dark={{ color: 'gray.400' }}
+                  fontWeight="medium"
+                  lineHeight="relaxed"
                 >
-                  Share locations with family, friends, and co‑workers – all with
-                  privacy baked in. Our end‑to‑end encrypted service keeps your
-                  location data under your control. No selling. No sharing. Just
-                  the privacy you deserve.
+                  Grid is the leading <strong>end-to-end encrypted (E2EE)</strong> location
+                  sharing app. Share locations with family, friends, and co‑workers – all with privacy baked in.
+                   Unlike other apps, Grid's E2EE technology means we can't see,
+                  track, or sell your location data - ever.
                 </Text>
               </FallInPlace>
 
@@ -159,52 +189,74 @@ const Home: NextPage = () => {
               w="full"
             >
               <Image
-                src="https://r2-static-grid-files.mygrid.app/iphone-mockup.png"
+                src="https://r2-static-grid-files.mygrid.app/svg_mock.svg"
                 alt="Screenshot of Grid"
                 width={1000}
                 height={1000}
                 style={{ maxWidth: '100%', height: 'auto' }}
                 priority
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAF0lEQVR42mP8z/D/PwMDAwMTAwMjBDAAAE7UBAf+Wep0AAAAASUVORK5CYII="
               />
             </Box>
           </Flex>
         </Container>
-      </Box>
 
-      {/* Gray Section: Features + Tracks */}
-      <Box bg={lightBg}>
-        {/* Feature Section */}
-        <Box px={{ base: 4, lg: 0 }} py={{ base: 20, lg: 28 }}>
-          <FeatureSection />
-        </Box>
-
-        {/* Tracks Screenshot */}
+        {/* Scroll indicator */}
         <Box
-          py={{ base: 20, lg: 28 }}
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
+          position="absolute"
+          bottom={{ base: 4, lg: 8 }}
+          left="50%"
+          transform="translateX(-50%)"
+          textAlign="center"
+          cursor="pointer"
+          onClick={() => {
+            const element = document.getElementById('privacy-features');
+            element?.scrollIntoView({ behavior: 'smooth' });
+          }}
         >
-          <Image
-            src="https://r2-static-grid-files.mygrid.app/tracks.png"
-            alt="Tracks"
-            width={1000}
-            height={1000}
-            style={{ maxWidth: '100%', height: 'auto' }}
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAF0lEQVR42mP8z/D/PwMDAwMTAwMjBDAAAE7UBAf+Wep0AAAAASUVORK5CYII="
-          />
+          <Text
+            fontSize="sm"
+            fontWeight="medium"
+            color="gray.500"
+            _dark={{ color: 'gray.400' }}
+            mb={2}
+          >
+            Why Grid?
+          </Text>
+          <Box
+            animation={`${bounce} 2s ease-in-out infinite`}
+            display="inline-block"
+          >
+            <Icon
+              as={FiChevronDown}
+              boxSize={8}
+              color="green.500"
+            />
+          </Box>
         </Box>
       </Box>
 
-      {/* FAQ Section — returns to base site background */}
-      <Box pt={{ base: 12, lg: 16 }} pb={{ base: 20, lg: 28 }}>
+      {/* Privacy Features Section */}
+      <Box id="privacy-features">
+        <PrivacyFeatures />
+      </Box>
+
+      {/* Security Audit Section */}
+      <SecurityAuditSection />
+
+      {/* Trust Section */}
+      <TrustSection />
+
+      {/* FAQ Section */}
+      <Box>
         <FaqSection />
       </Box>
+
+      {/* Combined Testimonials and Download CTA Section */}
+      <FinalCTASection />
     </Box>
   )
 }
 
-const FaqSection = () => <Faq {...faq} />
+const FaqSection = () => <ModernFaq {...faq} />
 
 export default Home

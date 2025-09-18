@@ -1,6 +1,7 @@
 import { ColorModeScript, theme } from '@chakra-ui/react'
 import { Provider } from './provider'
 import { seoConfig } from '#data/seo-config'
+import { StructuredData } from '#components/seo/structured-data'
 
 export default function Layout(props: { children: React.ReactNode }) {
   const colorMode = 'dark';
@@ -28,6 +29,7 @@ export default function Layout(props: { children: React.ReactNode }) {
             __html: JSON.stringify([
               seoConfig.structuredData.organization,
               seoConfig.structuredData.webApplication,
+              seoConfig.structuredData.softwareApplication,
             ]),
           }}
         />
