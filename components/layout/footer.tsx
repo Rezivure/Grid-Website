@@ -25,16 +25,15 @@ export const Footer: React.FC<FooterProps> = (props) => {
   const iconLinks = siteConfig.footer.links.filter(
     (link) => typeof link.label !== 'string'
   )
+  const BrandLogo = siteConfig.logo
 
   return (
     <Box bg="white" _dark={{ bg: 'gray.900' }} {...rest}>
       <Container maxW="container.2xl" px="8" py="8">
         <SimpleGrid columns={{ base: 1, md: columns }} spacing={8}>
           <Stack spacing="8">
-            <Stack alignItems="flex-start">
-              <Flex>
-                <Box as={siteConfig.logo} flex="1" height="32px" />
-              </Flex>
+            <Stack alignItems="flex-start" spacing={3}>
+              <BrandLogo size={28} />
               <Text fontSize="md" color="muted">
                 {siteConfig.seo.description}
               </Text>
