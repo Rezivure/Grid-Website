@@ -6,6 +6,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { useScroll } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 import * as React from 'react'
 
@@ -18,6 +19,9 @@ export const Header = (props: HeaderProps) => {
   const ref = React.useRef<HTMLHeadingElement>(null)
   const [y, setY] = React.useState(0)
   const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
+  const pathname = usePathname()
+  // Home page renders its own brand hero with built-in nav row.
+  const isHome = pathname === '/'
 
   const { scrollY } = useScroll()
   React.useEffect(() => {
@@ -25,6 +29,10 @@ export const Header = (props: HeaderProps) => {
   }, [scrollY])
 
   const bg = useColorModeValue('whiteAlpha.700', 'rgba(29, 32, 37, 0.7)')
+
+  if (isHome) {
+    return null
+  }
 
   return (
     <Box
