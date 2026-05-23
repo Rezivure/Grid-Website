@@ -37,6 +37,18 @@ export const Footer: React.FC<FooterProps> = (props) => {
               <Text fontSize="md" color="muted">
                 {siteConfig.seo.description}
               </Text>
+              <Text
+                as="span"
+                color="#5A6670"
+                fontFamily="'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+                fontWeight={500}
+                fontSize="12px"
+                letterSpacing="0.12em"
+                textTransform="uppercase"
+                mt={1}
+              >
+                End-to-end encrypted · Open source
+              </Text>
             </Stack>
             <Copyright>{siteConfig.footer.copyright}</Copyright>
           </Stack>

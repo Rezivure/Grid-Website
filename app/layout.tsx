@@ -21,11 +21,35 @@ export default function Layout(props: { children: React.ReactNode }) {
           type="image/x-icon"
           href="/static/favicons/favicon.ico"
         />
+        <link rel="icon" type="image/svg+xml" href="/static/brand/favicon.svg" />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/static/brand/favicon-32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/static/brand/favicon-192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="512x512"
+          href="/static/brand/favicon-512.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/static/brand/grid-app-icon-1024.png"
+        />
         <link rel="canonical" href={seoConfig.site.url} />
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#0E1115" />
         <meta name="application-name" content="Grid" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Grid" />
         <meta name="mobile-web-app-capable" content="yes" />
         

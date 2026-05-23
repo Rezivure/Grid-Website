@@ -37,7 +37,7 @@ const siteConfig = {
     additionalMetaTags: [
       {
         name: 'theme-color',
-        content: '#000000',
+        content: '#0E1115',
       },
       {
         name: 'application-name',

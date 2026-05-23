@@ -2,8 +2,8 @@
   "name": "Grid - Private E2EE Location Sharing",
   "short_name": "Grid",
   "description": "End-to-end encrypted location sharing app for privacy-conscious users",
-  "theme_color": "#000000",
-  "background_color": "#000000",
+  "theme_color": "#0E1115",
+  "background_color": "#0E1115",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
@@ -13,6 +13,35 @@
       "src": "/static/favicons/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "/static/brand/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/brand/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/brand/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/brand/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/static/brand/grid-app-icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
