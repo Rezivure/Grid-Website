@@ -132,7 +132,7 @@ export function TermsContent() {
               borderRadius="full"
             >
               <Text fontSize="sm" fontWeight="semibold" color={textColor}>
-                Last Updated: August 16, 2025
+                Last Updated: May 26, 2026
               </Text>
             </Box>
           </Box>
@@ -184,10 +184,12 @@ export function TermsContent() {
 
             <Section title="4. User Accounts and Security" headingColor={headingColor} iconColor={accentColor} borderColor={borderColor}>
               <Text fontSize="md" color={textColor} lineHeight="tall">
-                You may need to create an account to access certain features of the Service. You are
-                responsible for maintaining the confidentiality of your account credentials and for all
-                activities that occur under your account. You agree to notify us immediately of any
-                unauthorized use or suspected breach of security.
+                You may need to create an account to access certain features of the Service. Grid
+                accounts are secured using passkeys stored on your device; some older accounts may
+                instead use SMS verification, which we are in the process of phasing out. You are
+                responsible for maintaining control of the device(s) and credentials used to access
+                your account, and for all activities that occur under your account. You agree to
+                notify us immediately of any unauthorized use or suspected breach of security.
               </Text>
             </Section>
 

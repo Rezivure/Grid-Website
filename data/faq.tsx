@@ -1,3 +1,4 @@
+import { Link } from '@saas-ui/react'
 import * as React from 'react'
 
 const faq = {
@@ -43,13 +44,19 @@ const faq = {
       q: 'Can I use Grid on GrapheneOS?',
       a: (
         <>
-          Grid currently requires Google Play Services for location functionality due to
-          our initial implementation using a third-party location plugin. Some GrapheneOS
-          users have reported success by enabling sandboxed Google Play Services on their
-          devices. We understand this dependency conflicts with our privacy mission, and
-          we're actively working to replace it with a Google-free alternative. This
-          technical debt from our bootstrap phase is a top priority to resolve, and we'll
-          announce when Grid becomes fully compatible with de-Googled devices.
+          Yes — Grid runs fully on GrapheneOS and other de-Googled Android
+          devices, with <strong>no Google Play Services required</strong>. We
+          built our own open-source location plugin,{' '}
+          <Link
+            href="https://github.com/Rezivure/libre-location"
+            isExternal
+            color="#1FD9A0"
+            _hover={{ color: '#19B587' }}
+          >
+            libre_location
+          </Link>
+          , so Grid gets GPS directly from the OS with zero Google components.
+          No sandboxed Play Services, no workarounds — just install and go.
         </>
       ),
     },

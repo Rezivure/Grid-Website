@@ -43,7 +43,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer }) => {
       transition="box-shadow 0.2s ease-in-out"
       _hover={{ boxShadow: 'md' }}
     >
-      <chakra.dt fontWeight="semibold" mb="2" color="#00DBA4">
+      <chakra.dt fontWeight="semibold" mb="2" color="#1FD9A0">
         {question}
       </chakra.dt>
       <chakra.dd color="gray.600" _dark={{ color: 'gray.300' }}>

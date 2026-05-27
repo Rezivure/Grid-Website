@@ -44,9 +44,9 @@ export const metadata = {
     locale: 'en_US',
     images: [
       {
-        url: seoConfig.pages.home.image,
+        url: '/static/brand/ad-07-display-ditch-1200x628.png',
         width: 1200,
-        height: 630,
+        height: 628,
         alt: 'Grid - Private E2EE Location Sharing App',
       },
     ],
@@ -57,7 +57,7 @@ export const metadata = {
     creator: seoConfig.twitter.handle,
     title: seoConfig.pages.home.title,
     description: seoConfig.pages.home.description,
-    images: [seoConfig.pages.home.image],
+    images: ['/static/brand/ad-07-display-ditch-1200x628.png'],
   },
   robots: {
     index: true,
@@ -71,9 +71,15 @@ export const metadata = {
     },
   },
   icons: {
-    icon: '/static/favicons/favicon.ico',
+    icon: [
+      { url: '/static/favicons/favicon.ico' },
+      { url: '/static/brand/favicon.svg', type: 'image/svg+xml' },
+      { url: '/static/brand/favicon-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/static/brand/favicon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/static/brand/favicon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
     shortcut: '/static/favicons/favicon.ico',
-    apple: '/static/favicons/favicon.ico',
+    apple: '/static/brand/grid-app-icon-1024.png',
   },
   manifest: '/manifest.json',
 }

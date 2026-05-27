@@ -37,7 +37,7 @@ const siteConfig = {
     additionalMetaTags: [
       {
         name: 'theme-color',
-        content: '#000000',
+        content: '#0E1115',
       },
       {
         name: 'application-name',
@@ -50,6 +50,11 @@ const siteConfig = {
   header: {
     links: [
       {
+        label: 'Why Grid?',
+        href: '/compare',
+        id: 'why-grid',
+      },
+      {
         label: 'Github',
         href: 'https://github.com/rezivure/Grid-Mobile',
         id: 'github',
@@ -58,11 +63,6 @@ const siteConfig = {
         label: 'Privacy',
         href: '/privacy',
         id: 'privacy',
-      },
-      {
-        label: 'Documentation',
-        href: 'https://docs.mygrid.app',
-        id: 'docs',
       },
       {
         label: 'Donate',

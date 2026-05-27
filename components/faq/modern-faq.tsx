@@ -1,25 +1,20 @@
 'use client'
 
 import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Container,
+  HStack,
   Heading,
+  Icon,
   Text,
   VStack,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
-  useColorModeValue,
-  Icon,
-  HStack,
-  Flex,
 } from '@chakra-ui/react'
-import { FiHelpCircle, FiPlus, FiMinus } from 'react-icons/fi'
-import { motion } from 'framer-motion'
-
-const MotionBox = motion(Box)
+import { FiMinus, FiPlus } from 'react-icons/fi'
+import { BRAND, Eyebrow, GEIST } from '#components/brand/brand'
 
 interface FaqProps {
   title?: React.ReactNode
@@ -29,161 +24,105 @@ interface FaqProps {
 
 export const ModernFaq: React.FC<FaqProps> = (props) => {
   const {
-    title = 'Frequently Asked Questions',
+    title = 'Frequently asked questions',
     description = 'Everything you need to know about Grid',
     items = [],
   } = props
 
-  const bgColor = useColorModeValue('white', 'gray.900')
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const textColor = useColorModeValue('gray.600', 'gray.400')
-  const accordionBg = useColorModeValue('white', 'gray.800')
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
-  const hoverBg = useColorModeValue('gray.50', 'gray.700')
-  const accentColor = 'green.500'
-
   return (
     <Box
-      py={{ base: 16, lg: 24 }}
-      bg={bgColor}
-      position="relative"
-      overflow="hidden"
+      as="section"
+      bg={BRAND.ink}
+      color={BRAND.paper}
+      py={{ base: 20, lg: 28 }}
+      borderTop="1px solid"
+      borderColor={BRAND.hairline}
     >
-      {/* Background decoration */}
-      <Box
-        position="absolute"
-        top="10%"
-        left="-10%"
-        width="40%"
-        height="40%"
-        bg="purple.400"
-        opacity="0.03"
-        borderRadius="full"
-        filter="blur(100px)"
-      />
-      <Box
-        position="absolute"
-        bottom="10%"
-        right="-10%"
-        width="40%"
-        height="40%"
-        bg="green.400"
-        opacity="0.03"
-        borderRadius="full"
-        filter="blur(100px)"
-      />
-
-      <Container maxW="container.lg" position="relative">
-        <VStack spacing={{ base: 12, lg: 16 }}>
+      <Container maxW="container.lg" px={{ base: 6, md: 10 }}>
+        <VStack spacing={{ base: 12, lg: 16 }} align="stretch">
           {/* Header */}
-          <Box textAlign="center" maxW="2xl" mx="auto">
-            <Flex justify="center" mb={6}>
-              <Box
-                p={4}
-                bg={`${accentColor}20`}
-                borderRadius="2xl"
-              >
-                <Icon as={FiHelpCircle} boxSize={10} color={accentColor} />
-              </Box>
-            </Flex>
+          <VStack spacing={5} align="flex-start" maxW="720px">
+            <Eyebrow>Questions</Eyebrow>
             <Heading
-              fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
-              fontWeight="black"
-              color={headingColor}
-              mb={4}
+              as="h2"
+              fontFamily={GEIST}
+              fontWeight={700}
+              lineHeight="0.98"
+              letterSpacing="-0.035em"
+              sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
               {title}
             </Heading>
-            <Text
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color={textColor}
-              fontWeight="medium"
-            >
+            <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }}>
               {description}
             </Text>
-          </Box>
+          </VStack>
 
-          {/* FAQ Accordion */}
-          <Box w="full" maxW="3xl" mx="auto">
-            <Accordion allowMultiple>
-              {items.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  border="none"
-                  mb={4}
-                >
-                  {({ isExpanded }) => (
-                    <MotionBox
-                      initial={false}
-                      animate={{
-                        backgroundColor: isExpanded
-                          ? accordionBg
-                          : accordionBg,
-                      }}
-                      bg={accordionBg}
-                      borderRadius="2xl"
-                      overflow="hidden"
-                      boxShadow={isExpanded ? 'lg' : 'md'}
-                      border="1px solid"
-                      borderColor={isExpanded ? accentColor : 'transparent'}
-                      transition="all 0.3s"
+          {/* Accordion */}
+          <Accordion allowMultiple>
+            {items.map((item, index) => (
+              <AccordionItem key={index} border="none" mb={3}>
+                {({ isExpanded }) => (
+                  <Box
+                    bg={BRAND.shell}
+                    borderRadius="16px"
+                    overflow="hidden"
+                    border="1px solid"
+                    borderColor={isExpanded ? BRAND.hairlineHi : BRAND.hairline}
+                    transition="border-color 0.2s ease"
+                  >
+                    <AccordionButton
+                      p={{ base: 5, md: 6 }}
+                      _hover={{ bg: BRAND.shellHi }}
+                      _expanded={{ bg: 'transparent' }}
                     >
-                      <AccordionButton
-                        p={6}
-                        _hover={{ bg: hoverBg }}
-                        _expanded={{ bg: 'transparent' }}
-                      >
-                        <Box flex="1" textAlign="left">
-                          <HStack spacing={3} align="start">
-                            <Box
-                              mt={1}
-                              p={1.5}
-                              borderRadius="md"
-                              bg={isExpanded ? `${accentColor}20` : 'gray.100'}
-                              _dark={{ bg: isExpanded ? `${accentColor}20` : 'gray.700' }}
-                            >
-                              <Icon
-                                as={isExpanded ? FiMinus : FiPlus}
-                                boxSize={4}
-                                color={isExpanded ? accentColor : textColor}
-                              />
-                            </Box>
-                            <Text
-                              fontSize={{ base: 'lg', md: 'xl' }}
-                              fontWeight={isExpanded ? 'bold' : 'semibold'}
-                              color={isExpanded ? headingColor : headingColor}
-                              pr={4}
-                            >
-                              {item.q}
-                            </Text>
-                          </HStack>
-                        </Box>
-                      </AccordionButton>
-                      <AccordionPanel
-                        pb={6}
-                        px={6}
-                        pt={0}
-                      >
-                        <Box
-                          pl={{ base: 0, md: 12 }}
-                          pt={2}
-                        >
-                          <Text
-                            color={textColor}
-                            fontSize={{ base: 'md', md: 'lg' }}
-                            lineHeight="relaxed"
+                      <Box flex="1" textAlign="left">
+                        <HStack spacing={4} align="center">
+                          <Box
+                            display="inline-flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            w="28px"
+                            h="28px"
+                            flexShrink={0}
+                            borderRadius="8px"
+                            bg={isExpanded ? BRAND.mintSoft : 'rgba(255,255,255,0.05)'}
                           >
-                            {item.a}
+                            <Icon
+                              as={isExpanded ? FiMinus : FiPlus}
+                              boxSize={4}
+                              color={isExpanded ? BRAND.mint : BRAND.slateHi}
+                            />
+                          </Box>
+                          <Text
+                            fontFamily={GEIST}
+                            fontSize={{ base: 'md', md: 'lg' }}
+                            fontWeight={600}
+                            letterSpacing="-0.01em"
+                            color={BRAND.paper}
+                            pr={4}
+                          >
+                            {item.q}
                           </Text>
-                        </Box>
-                      </AccordionPanel>
-                    </MotionBox>
-                  )}
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Box>
-
+                        </HStack>
+                      </Box>
+                    </AccordionButton>
+                    <AccordionPanel pb={6} px={{ base: 5, md: 6 }} pt={0}>
+                      <Box pl={{ base: 0, md: 12 }}>
+                        <Text
+                          color={BRAND.slateHi}
+                          fontSize={{ base: 'sm', md: 'md' }}
+                          lineHeight="1.7"
+                        >
+                          {item.a}
+                        </Text>
+                      </Box>
+                    </AccordionPanel>
+                  </Box>
+                )}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </VStack>
       </Container>
     </Box>

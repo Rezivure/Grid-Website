@@ -3,171 +3,129 @@
 import {
   Box,
   Container,
-  Heading,
-  Text,
-  VStack,
-  Icon,
-  useColorModeValue,
   Grid,
   GridItem,
+  Heading,
+  Icon,
+  SimpleGrid,
+  Text,
+  VStack,
 } from '@chakra-ui/react'
-import { FiShield, FiLock, FiEye, FiUsers, FiMap, FiCode } from 'react-icons/fi'
+import { FiCode, FiEye, FiLock, FiMap, FiShield, FiUsers } from 'react-icons/fi'
+import { BRAND, Eyebrow, GEIST, monoCaps } from '#components/brand/brand'
 
 const features = [
   {
     icon: FiLock,
     title: 'End-to-End Encrypted',
-    description: 'Your location is encrypted before leaving your phone. Nobody can see it - not even us.',
-    color: 'purple'
+    description:
+      'Your location is encrypted before it leaves your phone. Nobody can read it — not even us.',
   },
   {
     icon: FiMap,
     title: 'Private Maps',
-    description: 'Self-hosted map tiles mean no tracking from Google or Apple Maps.',
-    color: 'blue'
+    description: 'Self-hosted Protomaps tiles. No tracking from Google or Apple Maps.',
   },
   {
     icon: FiEye,
     title: 'You Control Everything',
-    description: 'Set expiring shares, custom schedules, instant revocation. Your rules.',
-    color: 'teal'
+    description: 'Expiring shares, custom schedules, instant revocation. Your rules.',
   },
   {
     icon: FiShield,
     title: 'Your Data Stays Yours',
     description: 'We never sell your data. Ever. No ads, no trackers, no compromise.',
-    color: 'orange'
   },
   {
     icon: FiUsers,
     title: 'Unlimited Sharing',
-    description: 'Create groups for family, friends, events. No premium features.',
-    color: 'pink'
+    description: 'Create groups for family, friends, events. No premium tier, no upsells.',
   },
   {
     icon: FiCode,
     title: '100% Open Source',
     description: 'The Grid app is fully open source. Audit it, fork it, improve it.',
-    color: 'green'
-  }
+  },
+]
+
+const stats = [
+  { label: 'Ads shown', value: '0', suffix: '' },
+  { label: 'Data sold', value: '0', suffix: 'GB' },
+  { label: 'Trackers', value: '0', suffix: '' },
+  { label: 'Your privacy', value: '100', suffix: '%' },
 ]
 
 export const PrivacyFeatures = () => {
-  const bgColor = useColorModeValue('gray.50', 'gray.950')
-  const headingColor = useColorModeValue('gray.800', 'white')
-  const descColor = useColorModeValue('gray.600', 'gray.300')
-  const cardBg = useColorModeValue('white', 'gray.800')
-  const cardShadow = useColorModeValue(
-    '0 4px 20px rgba(0,0,0,0.08)',
-    '0 4px 20px rgba(0,0,0,0.4)'
-  )
-
   return (
-    <Box
-      py={{ base: 16, lg: 24 }}
-      bg={bgColor}
-      position="relative"
-      overflow="hidden"
-    >
-      {/* Background decoration */}
-      <Box
-        position="absolute"
-        top="-50%"
-        right="-10%"
-        width="60%"
-        height="150%"
-        bg="green.500"
-        opacity="0.03"
-        borderRadius="full"
-        filter="blur(100px)"
-        zIndex={0}
-      />
-
-      <Container maxW="container.xl" position="relative" zIndex={1}>
-        <VStack spacing={{ base: 12, lg: 16 }}>
+    <Box as="section" bg={BRAND.ink} color={BRAND.paper} py={{ base: 20, lg: 28 }}>
+      <Container maxW="container.xl" px={{ base: 6, md: 10 }}>
+        <VStack spacing={{ base: 14, lg: 20 }} align="stretch">
           {/* Header */}
-          <Box textAlign="center" maxW="2xl" mx="auto">
+          <VStack spacing={5} align="flex-start" maxW="720px">
+            <Eyebrow>Built in, not bolted on</Eyebrow>
             <Heading
-              fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
-              fontWeight="black"
-              color={headingColor}
-              lineHeight="1"
-              letterSpacing="tight"
+              as="h2"
+              fontFamily={GEIST}
+              fontWeight={700}
+              lineHeight="0.98"
+              letterSpacing="-0.035em"
+              sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
-              Privacy isn't optional
+              <Box as="span" color={BRAND.paper}>
+                Privacy isn&apos;t optional.{' '}
+              </Box>
+              <Box as="span" color={BRAND.mint}>
+                It&apos;s the product.
+              </Box>
             </Heading>
-            <Text
-              mt={4}
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color={descColor}
-              fontWeight="medium"
-            >
-              It's built into everything we do
-            </Text>
-          </Box>
+          </VStack>
 
           {/* Features Grid */}
           <Grid
             templateColumns={{ base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
-            gap={{ base: 6, lg: 8 }}
-            w="full"
+            gap={{ base: 4, lg: 5 }}
           >
-            {features.map((feature, index) => (
-              <GridItem key={index}>
+            {features.map((feature) => (
+              <GridItem key={feature.title}>
                 <Box
-                  p={8}
-                  bg={cardBg}
-                  borderRadius="2xl"
-                  boxShadow={cardShadow}
-                  transition="all 0.3s"
-                  cursor="pointer"
-                  position="relative"
-                  overflow="hidden"
+                  h="full"
+                  p={{ base: 6, lg: 8 }}
+                  bg={BRAND.shell}
+                  border="1px solid"
+                  borderColor={BRAND.hairline}
+                  borderRadius="20px"
+                  transition="all 0.2s ease"
                   _hover={{
-                    transform: 'translateY(-8px)',
-                    boxShadow: '0 12px 40px rgba(0,0,0,0.15)',
+                    bg: BRAND.shellHi,
+                    borderColor: BRAND.hairlineHi,
+                    transform: 'translateY(-4px)',
                   }}
                 >
-                  {/* Colored accent */}
-                  <Box
-                    position="absolute"
-                    top={0}
-                    left={0}
-                    right={0}
-                    height="3px"
-                    bg={`${feature.color}.500`}
-                  />
-
-                  <VStack align="start" spacing={4}>
+                  <VStack align="start" spacing={5}>
                     <Box
-                      p={3}
-                      bg={`${feature.color}.100`}
-                      _dark={{ bg: `${feature.color}.900` }}
-                      borderRadius="xl"
-                      display="inline-block"
+                      display="inline-flex"
+                      alignItems="center"
+                      justifyContent="center"
+                      w="44px"
+                      h="44px"
+                      borderRadius="13px"
+                      bg={BRAND.mintSoft}
                     >
-                      <Icon
-                        as={feature.icon}
-                        boxSize={6}
-                        color={`${feature.color}.500`}
-                        _dark={{ color: `${feature.color}.300` }}
-                      />
+                      <Icon as={feature.icon} boxSize={5} color={BRAND.mint} />
                     </Box>
-
                     <Box>
                       <Heading
-                        fontSize="xl"
-                        fontWeight="bold"
-                        color={headingColor}
+                        as="h3"
+                        fontFamily={GEIST}
+                        fontSize="19px"
+                        fontWeight={600}
+                        letterSpacing="-0.01em"
+                        color={BRAND.paper}
                         mb={2}
                       >
                         {feature.title}
                       </Heading>
-                      <Text
-                        color={descColor}
-                        fontSize="md"
-                        lineHeight="relaxed"
-                      >
+                      <Text color={BRAND.slateHi} fontSize="15px" lineHeight="1.6">
                         {feature.description}
                       </Text>
                     </Box>
@@ -178,54 +136,38 @@ export const PrivacyFeatures = () => {
           </Grid>
 
           {/* Stats */}
-          <Box w="full" pt={8}>
-            <Grid
-              templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
-              gap={6}
-            >
-              {[
-                { label: 'Ads shown', value: '0', suffix: '' },
-                { label: 'Data sold', value: '0', suffix: 'GB' },
-                { label: 'Trackers', value: '0', suffix: '' },
-                { label: 'Your privacy', value: '100', suffix: '%' },
-              ].map((stat, index) => (
-                <Box
-                  key={index}
-                  bg={cardBg}
-                  p={6}
-                  borderRadius="2xl"
-                  boxShadow={cardShadow}
-                  textAlign="center"
-                  transition="all 0.3s"
-                  _hover={{
-                    transform: 'scale(1.05)',
-                  }}
+          <SimpleGrid columns={{ base: 2, md: 4 }} spacing={4}>
+            {stats.map((stat) => (
+              <Box
+                key={stat.label}
+                bg={BRAND.shell}
+                border="1px solid"
+                borderColor={BRAND.hairline}
+                borderRadius="20px"
+                py={8}
+                px={6}
+                textAlign="center"
+              >
+                <Text
+                  as="div"
+                  fontFamily={GEIST}
+                  fontSize={{ base: '40px', md: '48px' }}
+                  fontWeight={700}
+                  letterSpacing="-0.04em"
+                  lineHeight="1"
+                  color={stat.value === '100' ? BRAND.mint : BRAND.paper}
                 >
-                  <Text
-                    fontSize={{ base: '3xl', md: '4xl' }}
-                    fontWeight="black"
-                    color={stat.value === '100' ? 'green.500' : headingColor}
-                    lineHeight="1"
-                  >
-                    {stat.value}
-                    <Box as="span" fontSize="xl" ml={1}>
-                      {stat.suffix}
-                    </Box>
-                  </Text>
-                  <Text
-                    mt={2}
-                    fontSize="sm"
-                    color={descColor}
-                    fontWeight="medium"
-                    textTransform="uppercase"
-                    letterSpacing="wide"
-                  >
-                    {stat.label}
-                  </Text>
-                </Box>
-              ))}
-            </Grid>
-          </Box>
+                  {stat.value}
+                  <Box as="span" fontSize="20px" ml={1} color={BRAND.slate}>
+                    {stat.suffix}
+                  </Box>
+                </Text>
+                <Text mt={3} fontSize="11px" color={BRAND.slate} {...monoCaps}>
+                  {stat.label}
+                </Text>
+              </Box>
+            ))}
+          </SimpleGrid>
         </VStack>
       </Container>
     </Box>

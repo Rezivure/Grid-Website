@@ -46,19 +46,17 @@ const Navigation: React.FC = () => {
               >
                 <HStack
                   spacing={2}
-                  bg="rgba(88, 101, 242, 0.1)"
+                  bg="#1FD9A0"
                   px={4}
                   py={2}
                   borderRadius="full"
-                  border="2px solid"
-                  borderColor="#5865F2"
-                  _hover={{ bg: 'rgba(88, 101, 242, 0.2)' }}
+                  _hover={{ bg: '#19B587' }}
                 >
-                  <FaDiscord size={20} color="#5865F2" />
+                  <FaDiscord size={18} color="#0B5840" />
                   <Text
-                    fontWeight="semibold"
+                    fontWeight={600}
                     fontSize="sm"
-                    color="#5865F2"
+                    color="#0B5840"
                   >
                     Discord
                   </Text>
