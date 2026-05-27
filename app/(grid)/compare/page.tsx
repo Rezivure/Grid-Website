@@ -17,64 +17,37 @@ import {
 import { FiCheck, FiX } from 'react-icons/fi'
 import { Link } from '@saas-ui/react'
 
-type Cell =
-  | { kind: 'yes'; note?: string }
-  | { kind: 'no'; note?: string }
-  | { kind: 'text'; value: string }
-
 interface Row {
   capability: string
-  life360: Cell
-  grid: Cell
+  /** short note shown beside Life360's red cross (the worse answer) */
+  life360: string
+  /** short note shown beside Grid's green check (the better answer) */
+  grid: string
 }
 
+// Every row is framed as a privacy win: Grid has it (green check), Life360
+// doesn't (red cross). Notes are kept short so nothing truncates.
 const rows: Row[] = [
-  {
-    capability: 'End-to-end encryption',
-    life360: { kind: 'no' },
-    grid: { kind: 'yes', note: 'Matrix Olm / Megolm' },
-  },
-  {
-    capability: 'Open source',
-    life360: { kind: 'no' },
-    grid: { kind: 'yes', note: 'MPL-2.0' },
-  },
-  {
-    capability: 'Self-hostable',
-    life360: { kind: 'no' },
-    grid: { kind: 'yes', note: 'Run your own Matrix homeserver' },
-  },
-  {
-    capability: 'Account requires phone or email',
-    life360: { kind: 'yes' },
-    grid: { kind: 'no', note: 'No phone, no email, no ID' },
-  },
-  {
-    capability: 'Map data source',
-    life360: { kind: 'text', value: 'Google Maps' },
-    grid: { kind: 'text', value: 'Protomaps (no commercial trackers)' },
-  },
+  { capability: 'End-to-end encryption', life360: 'Not encrypted', grid: 'Matrix Olm / Megolm' },
+  { capability: 'Open source', life360: 'Proprietary', grid: 'MPL-2.0' },
+  { capability: 'Self-hostable', life360: 'No', grid: 'Run your own homeserver' },
+  { capability: 'Anonymous sign-up', life360: 'Phone or email required', grid: 'No phone, no email' },
+  { capability: 'Private map tiles', life360: 'Google Maps', grid: 'Protomaps (our own tiles)' },
   {
     capability: 'Works on GrapheneOS / de-Googled Android',
-    life360: { kind: 'no', note: 'Requires Google Play Services' },
-    grid: {
-      kind: 'yes',
-      note: 'Custom libre_location plugin — no Play Services dependency',
-    },
+    life360: 'Needs Play Services',
+    grid: 'Our libre_location plugin',
   },
   {
-    capability: 'Sells your location data',
-    life360: { kind: 'yes', note: 'Per FTC settlement (2024)' },
-    grid: { kind: 'no', note: 'Never — we cannot read it' },
+    capability: 'Never sells your location',
+    life360: 'Sold — FTC settlement (2024)',
+    grid: 'Encrypted — we can’t',
   },
-  {
-    capability: 'Third-party tracking SDKs',
-    life360: { kind: 'yes' },
-    grid: { kind: 'no' },
-  },
+  { capability: 'No third-party tracking SDKs', life360: 'Bundled tracking SDKs', grid: 'None' },
 ]
 
-const YesIcon = () => (
+// Grid's answer — green, the good outcome.
+const ProIcon = () => (
   <Box
     as="span"
     display="inline-flex"
@@ -86,14 +59,15 @@ const YesIcon = () => (
     bg="#1FD9A0"
     color="#0B5840"
     flexShrink={0}
-    aria-label="Yes"
+    aria-label="Grid"
     role="img"
   >
     <FiCheck size={14} strokeWidth={3} />
   </Box>
 )
 
-const NoIcon = () => (
+// Life360's answer — red, the worse outcome.
+const ConIcon = () => (
   <Box
     as="span"
     display="inline-flex"
@@ -102,57 +76,33 @@ const NoIcon = () => (
     w="22px"
     h="22px"
     borderRadius="full"
-    bg="rgba(255,255,255,0.06)"
-    color="#5A6670"
+    bg="rgba(242,117,92,0.14)"
+    color="#F2755C"
     flexShrink={0}
-    aria-label="No"
+    aria-label="Life360"
     role="img"
   >
     <FiX size={14} strokeWidth={3} />
   </Box>
 )
 
-const CellRender = ({ cell }: { cell: Cell }) => {
-  if (cell.kind === 'yes') {
-    return (
-      <Stack direction="row" spacing={3} align="center">
-        <YesIcon />
-        {cell.note && (
-          <Text fontSize="sm" color="#FAFAF9" fontWeight={500}>
-            {cell.note}
-          </Text>
-        )}
-        {!cell.note && (
-          <Text fontSize="sm" color="#FAFAF9" fontWeight={500}>
-            Yes
-          </Text>
-        )}
-      </Stack>
-    )
-  }
-  if (cell.kind === 'no') {
-    return (
-      <Stack direction="row" spacing={3} align="center">
-        <NoIcon />
-        {cell.note && (
-          <Text fontSize="sm" color="#5A6670">
-            {cell.note}
-          </Text>
-        )}
-        {!cell.note && (
-          <Text fontSize="sm" color="#5A6670">
-            No
-          </Text>
-        )}
-      </Stack>
-    )
-  }
-  return (
+const ProCell = ({ note }: { note: string }) => (
+  <Stack direction="row" spacing={3} align="center">
+    <ProIcon />
     <Text fontSize="sm" color="#FAFAF9" fontWeight={500}>
-      {cell.value}
+      {note}
     </Text>
-  )
-}
+  </Stack>
+)
+
+const ConCell = ({ note }: { note: string }) => (
+  <Stack direction="row" spacing={3} align="center">
+    <ConIcon />
+    <Text fontSize="sm" color="#5A6670">
+      {note}
+    </Text>
+  </Stack>
+)
 
 export default function ComparePage() {
   return (
@@ -265,10 +215,10 @@ export default function ComparePage() {
                     </Text>
                   </Td>
                   <Td>
-                    <CellRender cell={row.life360} />
+                    <ConCell note={row.life360} />
                   </Td>
                   <Td>
-                    <CellRender cell={row.grid} />
+                    <ProCell note={row.grid} />
                   </Td>
                 </Tr>
               ))}

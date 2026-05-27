@@ -136,7 +136,7 @@ export function PrivacyContent() {
               borderRadius="full"
             >
               <Text fontSize="sm" fontWeight="semibold" color={textColor}>
-                Effective Date: September 17, 2025
+                Effective Date: May 26, 2026
               </Text>
             </Box>
           </Box>
@@ -171,10 +171,16 @@ export function PrivacyContent() {
                 borderLeftColor={accentColor}
               >
                 <Text fontWeight="bold" color={headingColor} mb={3} fontSize="lg">
-                  Phone Number and Username:
+                  Passkey and Username:
                 </Text>
                 <Text color={textColor} fontSize="md" lineHeight="tall">
-                  When you register for Grid, we collect your phone number for verification purposes and to create your account. We also collect your username for identification within the app.
+                  Grid accounts are secured with a passkey — a private credential created and stored on your own device. Creating an account this way does not require a phone number, email address, or any other personal information. We also collect a username so you can be identified within the app.
+                </Text>
+                <Text fontWeight="bold" color={headingColor} mt={6} mb={3} fontSize="lg">
+                  Phone Number (legacy SMS verification):
+                </Text>
+                <Text color={textColor} fontSize="md" lineHeight="tall">
+                  Some accounts were set up using SMS verification, which we are phasing out in favor of passkeys. If your account uses SMS verification, we store the associated phone number solely to verify and secure that account — it is never shared with other users or third parties. You can delete your account and its associated data at any time.
                 </Text>
               </Box>
             </Section>

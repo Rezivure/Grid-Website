@@ -4,6 +4,8 @@ import {
   Box,
   Container,
   Flex,
+  Grid,
+  GridItem,
   HStack,
   Heading,
   Stack,
@@ -11,23 +13,20 @@ import {
 } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
 import Image from 'next/image'
-
-const MONO_CAPS = {
-  fontFamily: "'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
-  fontWeight: 500,
-  letterSpacing: '0.12em',
-  textTransform: 'uppercase' as const,
-  fontSize: { base: '10px', md: '12px' },
-}
+import { BRAND, Eyebrow, GEIST, monoCaps } from '#components/brand/brand'
+import { PhoneMockup } from '#components/brand/phone-mockup'
+import { GithubStars } from '#components/brand/github-stars'
 
 export const BrandHero = () => {
   return (
     <Box
       as="section"
       position="relative"
-      bg="#0E1115"
-      color="#FAFAF9"
+      bg={BRAND.ink}
+      color={BRAND.paper}
       minH={{ base: 'auto', lg: '100vh' }}
+      display="flex"
+      flexDirection="column"
       overflow="hidden"
     >
       {/* Subtle grid pattern background */}
@@ -38,172 +37,136 @@ export const BrandHero = () => {
         backgroundImage="url('/static/brand/grid-pattern-low-color.svg')"
         backgroundRepeat="repeat"
         backgroundSize="320px 320px"
-        opacity={0.07}
+        opacity={0.06}
         pointerEvents="none"
       />
 
-      {/* Top nav row: logo (left) + mono caps label (right) */}
+      {/* Hero body — split: copy left, grid motif right */}
       <Container
         maxW="container.2xl"
         px={{ base: 6, md: 10 }}
-        pt={{ base: 6, md: 8 }}
-        position="relative"
-        zIndex={2}
-      >
-        <Flex align="center" justify="space-between" gap={4}>
-          <Link href="/" _hover={{ textDecoration: 'none' }}>
-            <HStack spacing={2.5} align="center">
-              <Box as="span" display="inline-flex" w="32px" h="32px" flexShrink={0}>
-                <Image
-                  src="/static/brand/grid-symbol-color-dark.svg"
-                  alt="Grid"
-                  width={32}
-                  height={32}
-                  priority
-                />
-              </Box>
-              <Text
-                as="span"
-                fontFamily="'Geist', system-ui, sans-serif"
-                fontWeight={600}
-                letterSpacing="-0.04em"
-                fontSize="24px"
-                lineHeight="1"
-                color="#FAFAF9"
-              >
-                grid
-              </Text>
-            </HStack>
-          </Link>
-
-          <Text
-            as="span"
-            color="#5A6670"
-            display={{ base: 'none', sm: 'inline' }}
-            {...MONO_CAPS}
-          >
-            End-to-end encrypted · Open source
-          </Text>
-        </Flex>
-      </Container>
-
-      {/* Hero body */}
-      <Container
-        maxW="container.2xl"
-        px={{ base: 6, md: 10 }}
-        pt={{ base: 16, md: 24, lg: 28 }}
-        pb={{ base: 24, md: 28, lg: 32 }}
+        pt={{ base: 28, md: 32, lg: 0 }}
+        pb={{ base: 16, md: 20, lg: 0 }}
         position="relative"
         zIndex={1}
+        flex="1"
+        display="flex"
+        alignItems="center"
       >
-        <Stack spacing={{ base: 8, md: 10 }} alignItems="flex-start" maxW="1400px">
-          <Heading
-            as="h1"
-            fontFamily="'Geist', system-ui, sans-serif"
-            fontWeight={700}
-            lineHeight="0.95"
-            letterSpacing="-0.04em"
-            textAlign="left"
-            sx={{
-              fontSize: 'clamp(64px, 12vw, 144px)',
-            }}
-          >
-            <Box
-              as="span"
-              display="block"
-              color="#5A6670"
-              sx={{
-                textDecoration: 'line-through',
-                textDecorationColor: '#5A6670',
-                textDecorationThickness: 'clamp(4px, 0.7vw, 8px)',
-                textUnderlineOffset: '0',
-              }}
-            >
-              Life360.
-            </Box>
-            <Box as="span" display="block" color="#1FD9A0">
-              Grid.
-            </Box>
-          </Heading>
+        <Grid
+          w="full"
+          templateColumns={{ base: '1fr', lg: '1.05fr 0.95fr' }}
+          alignItems="center"
+          gap={{ base: 14, lg: 10 }}
+        >
+          {/* Left: copy */}
+          <GridItem minW={0}>
+            <Stack spacing={{ base: 7, md: 9 }} alignItems="flex-start" maxW="640px">
+              <Eyebrow color={BRAND.mint}>End-to-end encrypted location</Eyebrow>
 
-          <Text
-            as="p"
-            color="#5A6670"
-            fontFamily="'Geist', system-ui, sans-serif"
-            fontWeight={500}
-            lineHeight="1.4"
-            sx={{
-              fontSize: 'clamp(16px, 1.8vw, 22px)',
-            }}
-            maxW="640px"
-          >
-            Real-time location, end-to-end encrypted.
-            <br />
-            No phone number. No email. No tracking SDKs.
-          </Text>
+              <Heading
+                as="h1"
+                w="full"
+                fontFamily={GEIST}
+                fontWeight={700}
+                lineHeight="0.95"
+                letterSpacing="-0.04em"
+                textAlign="left"
+                sx={{ fontSize: 'clamp(34px, 8.5vw, 104px)', overflowWrap: 'break-word' }}
+              >
+                <Box as="span" display="block" color={BRAND.paper}>
+                  Location sharing
+                </Box>
+                <Box as="span" display="block" color={BRAND.mint}>
+                  without surveillance.
+                </Box>
+              </Heading>
 
-          <HStack spacing={6} align="center" flexWrap="wrap" rowGap={3}>
-            <Link
-              href="https://appstore.mygrid.app"
-              display="inline-flex"
-              alignItems="center"
-              bg="#1FD9A0"
-              color="#0B5840"
-              fontFamily="'Geist', system-ui, sans-serif"
-              fontWeight={600}
-              fontSize="16px"
-              borderRadius="full"
-              px="24px"
-              py="14px"
-              _hover={{
-                bg: '#19B587',
-                textDecoration: 'none',
-                transform: 'translateY(-1px)',
-              }}
-              transition="all 0.15s ease"
-            >
-              Get Grid →
-            </Link>
+              <Text
+                as="p"
+                w="full"
+                color={BRAND.slateHi}
+                fontFamily={GEIST}
+                fontWeight={500}
+                lineHeight="1.5"
+                sx={{ fontSize: 'clamp(16px, 1.8vw, 21px)' }}
+                maxW="540px"
+              >
+                Real-time location, end-to-end encrypted. No phone number,
+                no email, no tracking SDKs.
+              </Text>
 
-            <Link
-              href="https://github.com/Rezivure/Grid-Mobile"
-              color="#5A6670"
-              fontFamily="'Geist', system-ui, sans-serif"
-              fontWeight={500}
-              fontSize="14px"
-              _hover={{ color: '#FAFAF9', textDecoration: 'none' }}
-              transition="color 0.15s ease"
-            >
-              ★ Star on GitHub
-            </Link>
-          </HStack>
-        </Stack>
+              <HStack spacing={4} align="center" flexWrap="wrap" rowGap={3}>
+                <Link
+                  href="https://appstore.mygrid.app"
+                  display="inline-flex"
+                  _hover={{ opacity: 0.85, transform: 'translateY(-1px)' }}
+                  transition="all 0.15s ease"
+                >
+                  <Image
+                    src="/static/images/app-store-badge.svg"
+                    alt="Download on the App Store"
+                    width={168}
+                    height={56}
+                  />
+                </Link>
+                <Link
+                  href="https://playstore.mygrid.app"
+                  display="inline-flex"
+                  _hover={{ opacity: 0.85, transform: 'translateY(-1px)' }}
+                  transition="all 0.15s ease"
+                >
+                  <Image
+                    src="/static/images/google-play-badge.svg"
+                    alt="Get it on Google Play"
+                    width={189}
+                    height={56}
+                  />
+                </Link>
+              </HStack>
+            </Stack>
+          </GridItem>
+
+          {/* Right: iPhone mockup with the app */}
+          <GridItem minW={0}>
+            <Flex justify="center" position="relative">
+              <Stack spacing={6} align="center">
+                <PhoneMockup />
+                <GithubStars />
+              </Stack>
+            </Flex>
+          </GridItem>
+        </Grid>
       </Container>
 
       {/* Bottom-right "available on" stack */}
-      <Box
-        position="absolute"
-        right={{ base: 6, md: 10 }}
-        bottom={{ base: 6, md: 10 }}
-        textAlign="right"
+      <Container
+        maxW="container.2xl"
+        px={{ base: 6, md: 10 }}
+        pb={{ base: 8, md: 10 }}
+        position="relative"
         zIndex={2}
         display={{ base: 'none', md: 'block' }}
       >
-        <Text as="span" display="block" color="#5A6670" {...MONO_CAPS}>
-          Available on
-        </Text>
-        <Text
-          as="span"
-          display="block"
-          color="#FAFAF9"
-          fontFamily="'Geist', system-ui, sans-serif"
-          fontWeight={500}
-          fontSize="14px"
-          mt={1}
-        >
-          iOS · App Store
-        </Text>
-      </Box>
+        <Flex justify="flex-end">
+          <Box textAlign="right">
+            <Text as="span" display="block" color={BRAND.slate} fontSize="12px" {...monoCaps}>
+              Available on
+            </Text>
+            <Text
+              as="span"
+              display="block"
+              color={BRAND.paper}
+              fontFamily={GEIST}
+              fontWeight={500}
+              fontSize="14px"
+              mt={1}
+            >
+              iOS · App Store
+            </Text>
+          </Box>
+        </Flex>
+      </Container>
     </Box>
   )
 }

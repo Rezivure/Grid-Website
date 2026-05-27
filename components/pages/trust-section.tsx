@@ -3,135 +3,114 @@
 import {
   Box,
   Container,
+  Flex,
   Heading,
+  Icon,
+  SimpleGrid,
   Text,
   VStack,
-  HStack,
-  SimpleGrid,
-  useColorModeValue,
-  Icon,
-  Flex,
 } from '@chakra-ui/react'
-import { FiZap, FiHeart, FiShield } from 'react-icons/fi'
+import {
+  FaBicycle,
+  FaBriefcase,
+  FaHiking,
+  FaMotorcycle,
+  FaPlane,
+  FaUsers,
+} from 'react-icons/fa'
+import { BRAND, Eyebrow, GEIST } from '#components/brand/brand'
 
+const useCases = [
+  { icon: FaUsers, label: 'Family', desc: 'Keep tabs on loved ones' },
+  { icon: FaHiking, label: 'Hiking', desc: 'Track your trail buddies' },
+  { icon: FaMotorcycle, label: 'Moto Clubs', desc: 'Ride together, stay connected' },
+  { icon: FaBicycle, label: 'Cycling', desc: 'Group rides made easy' },
+  { icon: FaPlane, label: 'Travel', desc: 'Meet up anywhere' },
+  { icon: FaBriefcase, label: 'Work Teams', desc: 'Coordinate field work' },
+]
 
 export const TrustSection = () => {
-  const bgColor = useColorModeValue('white', 'gray.900')
-  const cardBg = useColorModeValue('gray.50', 'gray.800')
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const textColor = useColorModeValue('gray.600', 'gray.400')
-  const accentColor = useColorModeValue('green.500', 'green.400')
-  const shadowColor = useColorModeValue(
-    '0 4px 20px rgba(0,0,0,0.08)',
-    '0 4px 20px rgba(0,0,0,0.4)'
-  )
-
   return (
     <Box
-      py={{ base: 16, lg: 24 }}
-      bg={bgColor}
-      position="relative"
-      overflow="hidden"
+      as="section"
+      bg={BRAND.ink}
+      color={BRAND.paper}
+      py={{ base: 20, lg: 28 }}
+      borderTop="1px solid"
+      borderColor={BRAND.hairline}
     >
-      {/* Decorative elements */}
-      <Box
-        position="absolute"
-        top="20%"
-        left="-5%"
-        width="30%"
-        height="30%"
-        bg="green.400"
-        opacity="0.05"
-        borderRadius="full"
-        filter="blur(80px)"
-      />
-      <Box
-        position="absolute"
-        bottom="20%"
-        right="-5%"
-        width="30%"
-        height="30%"
-        bg="blue.400"
-        opacity="0.05"
-        borderRadius="full"
-        filter="blur(80px)"
-      />
-
-      <Container maxW="container.xl" position="relative">
-        <VStack spacing={{ base: 16, lg: 20 }}>
+      <Container maxW="container.xl" px={{ base: 6, md: 10 }}>
+        <VStack spacing={{ base: 14, lg: 18 }} align="stretch">
           {/* Header */}
-          <Box textAlign="center" maxW="2xl" mx="auto">
+          <VStack spacing={5} align="flex-start" maxW="760px">
+            <Eyebrow>For every circle</Eyebrow>
             <Heading
-              fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
-              fontWeight="black"
-              color={headingColor}
-              lineHeight="0.95"
-              mb={6}
+              as="h2"
+              fontFamily={GEIST}
+              fontWeight={700}
+              lineHeight="0.98"
+              letterSpacing="-0.035em"
+              sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
-              Made for real life.
-              <Box as="span" color={accentColor}>
-                {' '}Not surveillance.
+              <Box as="span" color={BRAND.paper}>
+                Made for real life.{' '}
+              </Box>
+              <Box as="span" color={BRAND.mint}>
+                Not surveillance.
               </Box>
             </Heading>
-            <Text
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color={textColor}
-              fontWeight="medium"
-            >
-              From family check-ins to group adventures.
-              <br />
-              Share your journey, not your data.
+            <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.6">
+              From family check-ins to group adventures — share your journey,
+              not your data.
             </Text>
-          </Box>
+          </VStack>
 
-
-          {/* Use Cases */}
-          <Box w="full">
-            <Heading
-              fontSize="2xl"
-              color={headingColor}
-              mb={8}
-              textAlign="center"
-            >
-              Perfect for every adventure
-            </Heading>
-            <SimpleGrid columns={{ base: 2, md: 3 }} spacing={6} w="full">
-              {[
-                { label: '👨‍👩‍👧‍👦 Family', desc: 'Keep tabs on loved ones' },
-                { label: '🏔️ Hiking', desc: 'Track trail buddies' },
-                { label: '🏍️ Moto Clubs', desc: 'Ride together, stay connected' },
-                { label: '🚴 Cycling', desc: 'Group rides made easy' },
-                { label: '✈️ Travel', desc: 'Meet up anywhere' },
-                { label: '💼 Work Teams', desc: 'Coordinate field work' },
-              ].map((item, index) => (
-                <Flex
-                  key={index}
-                  direction="column"
-                  align="center"
-                  textAlign="center"
-                  p={6}
-                  bg={cardBg}
-                  borderRadius="2xl"
-                  transition="all 0.3s"
-                  cursor="pointer"
-                  _hover={{
-                    transform: 'scale(1.05)',
-                    boxShadow: shadowColor,
-                  }}
+          {/* Use cases */}
+          <SimpleGrid columns={{ base: 2, md: 3 }} spacing={4}>
+            {useCases.map((item) => (
+              <Flex
+                key={item.label}
+                direction="column"
+                p={{ base: 6, lg: 7 }}
+                bg={BRAND.shell}
+                border="1px solid"
+                borderColor={BRAND.hairline}
+                borderRadius="20px"
+                transition="all 0.2s ease"
+                _hover={{
+                  bg: BRAND.shellHi,
+                  borderColor: BRAND.hairlineHi,
+                  transform: 'translateY(-4px)',
+                }}
+              >
+                <Box
+                  display="inline-flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  w="44px"
+                  h="44px"
+                  borderRadius="13px"
+                  bg={BRAND.mintSoft}
+                  mb={5}
                 >
-                  <Text fontSize="3xl" mb={2}>
-                    {item.label.split(' ')[0]}
-                  </Text>
-                  <Text fontSize="lg" fontWeight="bold" color={headingColor} mb={1}>
-                    {item.label.split(' ').slice(1).join(' ')}
-                  </Text>
-                  <Text fontSize="sm" color={textColor}>
-                    {item.desc}
-                  </Text>
-                </Flex>
-              ))}
-            </SimpleGrid>
-          </Box>
+                  <Icon as={item.icon} boxSize={5} color={BRAND.mint} />
+                </Box>
+                <Text
+                  fontFamily={GEIST}
+                  fontSize="18px"
+                  fontWeight={600}
+                  letterSpacing="-0.01em"
+                  color={BRAND.paper}
+                  mb={1}
+                >
+                  {item.label}
+                </Text>
+                <Text fontSize="14px" color={BRAND.slateHi}>
+                  {item.desc}
+                </Text>
+              </Flex>
+            ))}
+          </SimpleGrid>
         </VStack>
       </Container>
     </Box>

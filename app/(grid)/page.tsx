@@ -9,6 +9,7 @@ import React from 'react'
 import { PrivacyFeatures } from '#components/pages/privacy-features'
 import { TrustSection } from '#components/pages/trust-section'
 import { SecurityAuditSection } from '#components/pages/security-audit-section'
+import { CompareTeaser } from '#components/pages/compare-teaser'
 import { FinalCTASection } from '#components/pages/final-cta-section'
 
 const Home: NextPage = () => {
@@ -27,6 +28,9 @@ const Home: NextPage = () => {
 
       {/* Trust Section */}
       <TrustSection />
+
+      {/* Grid vs Life360 — condensed comparison, links to /compare */}
+      <CompareTeaser />
 
       {/* FAQ Section */}
       <Box>

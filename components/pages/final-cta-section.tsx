@@ -2,171 +2,147 @@
 
 import {
   Box,
+  Button,
   Container,
+  Flex,
+  HStack,
   Heading,
+  Icon,
   Text,
   VStack,
-  HStack,
-  Button,
-  useColorModeValue,
-  Icon,
-  Flex,
 } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
+import { keyframes } from '@emotion/react'
 import Image from 'next/image'
 import { FaDiscord } from 'react-icons/fa'
 import { FiMail } from 'react-icons/fi'
-import { keyframes } from '@emotion/react'
+import { BRAND, Eyebrow, GEIST } from '#components/brand/brand'
 
 const testimonials = [
-  {
-    name: 'Honk',
-    text: 'This app is a freaking awesome project.',
-  },
-  {
-    name: 'Anonymous',
-    text: 'You stand alone in the private location sharing space.',
-  },
+  { name: 'Honk', text: 'This app is a freaking awesome project.' },
+  { name: 'Anonymous', text: 'You stand alone in the private location sharing space.' },
   {
     name: 'Early Adopter',
-    text: 'I\'ve been using Grid for a very long time and I\'m happy with new changes.',
+    text: "I've been using Grid for a very long time and I'm happy with new changes.",
   },
   {
     name: 'Norbinkus',
-    text: 'My family and I use other location sharing apps but I\'ve been looking for a privacy focused one. Grid has been a solid alternative.',
+    text: 'My family and I use other location sharing apps but I’ve been looking for a privacy focused one. Grid has been a solid alternative.',
   },
   {
     name: 'WhizzingWizard',
     text: 'Extremely excited to see a location-sharing app that prioritizes privacy with E2EE. This app works very well and is easy to setup.',
   },
-  {
-    name: 'Luke A.',
-    text: 'I love the limited sharing of this app.',
-  },
-  {
-    name: 'Jeff',
-    text: 'Great private alternative to all the data mining companies.',
-  },
+  { name: 'Luke A.', text: 'I love the limited sharing of this app.' },
+  { name: 'Jeff', text: 'Great private alternative to all the data mining companies.' },
   {
     name: 'Puppymang P',
-    text: 'Easy to set up. Just pick a username and do a phone verification then you\'re set.',
+    text: "Easy to set up. Just pick a username and do a phone verification then you're set.",
   },
 ]
 
 const scroll = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 `
 
 export const FinalCTASection = () => {
-  const bgGradient = useColorModeValue(
-    'linear(to-br, green.50, white)',
-    'linear(to-br, green.950, gray.900)'
-  )
-  const headingColor = useColorModeValue('gray.900', 'white')
-  const textColor = useColorModeValue('gray.600', 'gray.400')
-  const btnBg = useColorModeValue('white', 'gray.800')
-  const cardBg = useColorModeValue('white', 'gray.800')
-
   return (
     <Box
-      py={{ base: 16, lg: 24 }}
-      bgGradient={bgGradient}
+      as="section"
+      bg={BRAND.ink}
+      color={BRAND.paper}
+      py={{ base: 20, lg: 28 }}
       position="relative"
       overflow="hidden"
+      borderTop="1px solid"
+      borderColor={BRAND.hairline}
     >
-      {/* Background decoration */}
+      {/* soft mint glow */}
       <Box
         position="absolute"
-        top="-50%"
-        right="-20%"
-        width="50%"
-        height="200%"
-        bg="green.400"
-        opacity="0.05"
+        top="-20%"
+        right="-10%"
+        w="45%"
+        h="120%"
+        bg={BRAND.mint}
+        opacity={0.05}
+        filter="blur(120px)"
         borderRadius="full"
-        filter="blur(100px)"
+        pointerEvents="none"
       />
 
-      <Container maxW="container.xl" position="relative">
-        <VStack spacing={{ base: 16, lg: 20 }}>
-          {/* Testimonials Carousel */}
-          <VStack spacing={8} w="full">
-            <Box maxW="2xl" mx="auto">
+      <Container maxW="container.xl" px={{ base: 6, md: 10 }} position="relative">
+        <VStack spacing={{ base: 16, lg: 24 }}>
+          {/* Testimonials */}
+          <VStack spacing={10} w="full" align="stretch">
+            <VStack spacing={5} align="flex-start" maxW="720px">
+              <Eyebrow>What people say</Eyebrow>
               <Heading
-                fontSize={{ base: '4xl', md: '5xl', lg: '6xl' }}
-                fontWeight="black"
-                color={headingColor}
-                textAlign="center"
-                letterSpacing="tight"
-                lineHeight="1"
+                as="h2"
+                fontFamily={GEIST}
+                fontWeight={700}
+                lineHeight="0.98"
+                letterSpacing="-0.035em"
+                sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
               >
-                Trusted by Privacy-Conscious Users
+                Trusted by privacy-conscious users.
               </Heading>
-            </Box>
+            </VStack>
 
             {/* Carousel */}
             <Box w="full" overflow="hidden" position="relative">
-              {/* Gradient masks for smooth edges */}
               <Box
                 position="absolute"
                 left={0}
                 top={0}
                 bottom={0}
-                w="100px"
-                bgGradient={`linear(to-r, ${bgGradient.split(',')[0].split('(')[1]}, transparent)`}
+                w={{ base: '40px', md: '100px' }}
+                bgGradient={`linear(to-r, ${BRAND.ink}, transparent)`}
                 zIndex={1}
+                pointerEvents="none"
               />
               <Box
                 position="absolute"
                 right={0}
                 top={0}
                 bottom={0}
-                w="100px"
-                bgGradient={`linear(to-l, ${bgGradient.split(',')[1].split(')')[0]}, transparent)`}
+                w={{ base: '40px', md: '100px' }}
+                bgGradient={`linear(to-l, ${BRAND.ink}, transparent)`}
                 zIndex={1}
+                pointerEvents="none"
               />
-
-              {/* Scrolling content */}
               <Box
                 display="flex"
-                animation={`${scroll} 40s linear infinite`}
+                animation={`${scroll} 45s linear infinite`}
                 _hover={{ animationPlayState: 'paused' }}
               >
-                {/* Double the testimonials for seamless loop */}
                 {[...Array(2)].map((_, setIndex) => (
                   <HStack key={setIndex} spacing={4} px={2}>
                     {testimonials.map((testimonial, index) => (
                       <Box
                         key={`${setIndex}-${index}`}
-                        bg={cardBg}
+                        bg={BRAND.shell}
                         p={6}
-                        borderRadius="xl"
+                        borderRadius="16px"
+                        border="1px solid"
+                        borderColor={BRAND.hairline}
                         minW="300px"
                         maxW="300px"
                         flexShrink={0}
-                        boxShadow="sm"
                       >
                         <VStack align="start" spacing={3}>
                           <HStack spacing={0.5}>
                             {[...Array(5)].map((_, i) => (
-                              <Text key={i} color="yellow.400" fontSize="lg">
+                              <Text key={i} color={BRAND.mint} fontSize="md">
                                 ★
                               </Text>
                             ))}
                           </HStack>
-                          <Text
-                            fontSize="sm"
-                            color={textColor}
-                            fontStyle="italic"
-                          >
-                            "{testimonial.text}"
+                          <Text fontSize="sm" color={BRAND.slateHi} lineHeight="1.6">
+                            &ldquo;{testimonial.text}&rdquo;
                           </Text>
-                          <Text fontWeight="semibold" fontSize="sm" color={headingColor}>
+                          <Text fontWeight={600} fontSize="sm" color={BRAND.paper}>
                             — {testimonial.name}
                           </Text>
                         </VStack>
@@ -179,30 +155,25 @@ export const FinalCTASection = () => {
           </VStack>
 
           {/* Download CTA */}
-          <VStack spacing={{ base: 8, lg: 10 }}>
-            {/* Main CTA */}
-            <Box textAlign="center">
+          <VStack spacing={{ base: 8, lg: 10 }} textAlign="center">
+            <VStack spacing={4}>
               <Heading
-                fontSize={{ base: '3xl', md: '4xl', lg: '5.5xl' }}
-                fontWeight="black"
-                color={headingColor}
-                mb={4}
-                letterSpacing="tight"
+                as="h2"
+                fontFamily={GEIST}
+                fontWeight={700}
+                letterSpacing="-0.035em"
                 lineHeight="1"
+                sx={{ fontSize: 'clamp(32px, 4.5vw, 56px)' }}
               >
                 Ready to share privately?
               </Heading>
-              <Text
-                fontSize={{ base: 'lg', md: 'xl' }}
-                color={textColor}
-                fontWeight="medium"
-              >
-                Join thousands who've chosen privacy over surveillance
+              <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }}>
+                Join thousands who&apos;ve chosen privacy over surveillance.
               </Text>
-            </Box>
+            </VStack>
 
-            {/* Download buttons */}
-            <HStack spacing={4} justify="center">
+            {/* Store badges */}
+            <HStack spacing={4} justify="center" flexWrap="wrap" rowGap={3}>
               <Link href="https://appstore.mygrid.app">
                 <Image
                   src="/static/images/app-store-badge.svg"
@@ -221,69 +192,44 @@ export const FinalCTASection = () => {
               </Link>
             </HStack>
 
-            {/* Contact section */}
-            <Box
-              textAlign="center"
-              pt={8}
-              borderTop="1px solid"
-              borderColor={useColorModeValue('gray.200', 'gray.700')}
-              w="full"
-            >
-              <Text
-                fontSize="md"
-                color={textColor}
-                mb={4}
-              >
+            {/* Contact */}
+            <Box pt={8} borderTop="1px solid" borderColor={BRAND.hairline} w="full" maxW="640px">
+              <Text fontSize="md" color={BRAND.slate} mb={5}>
                 Have more questions?
               </Text>
-              <Flex
-                justify="center"
-                gap={4}
-                direction={{ base: 'column', sm: 'row' }}
-                align="center"
-              >
-                <Link
-                  href="https://discord.gg/cJrQXMn6Hk"
-                  _hover={{ textDecoration: 'none' }}
-                >
+              <Flex justify="center" gap={4} direction={{ base: 'column', sm: 'row' }} align="center">
+                <Link href="https://discord.gg/cJrQXMn6Hk" _hover={{ textDecoration: 'none' }}>
                   <Button
                     leftIcon={<FaDiscord />}
-                    bg="rgba(88, 101, 242, 0.15)"
-                    color="#5865F2"
+                    bg={BRAND.mint}
+                    color={BRAND.mintDeep}
                     size="lg"
                     px={6}
                     borderRadius="full"
-                    border="1px solid"
-                    borderColor="rgba(88, 101, 242, 0.3)"
-                    _hover={{
-                      bg: 'rgba(88, 101, 242, 0.25)',
-                      transform: 'scale(1.05)'
-                    }}
-                    transition="all 0.2s"
+                    fontFamily={GEIST}
+                    fontWeight={600}
+                    _hover={{ bg: BRAND.mintHover, transform: 'translateY(-1px)' }}
+                    transition="all 0.15s ease"
                   >
                     Join our Discord
                   </Button>
                 </Link>
-                <Link
-                  href="mailto:contact@mygrid.app"
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <Link href="mailto:contact@mygrid.app" _hover={{ textDecoration: 'none' }}>
                   <Button
                     leftIcon={<Icon as={FiMail} />}
-                    bg="rgba(72, 187, 120, 0.15)"
-                    color="green.500"
+                    bg="transparent"
+                    color={BRAND.paper}
                     size="lg"
                     px={6}
                     borderRadius="full"
                     border="1px solid"
-                    borderColor="rgba(72, 187, 120, 0.3)"
-                    _hover={{
-                      bg: 'rgba(72, 187, 120, 0.25)',
-                      transform: 'scale(1.05)'
-                    }}
-                    transition="all 0.2s"
+                    borderColor={BRAND.hairlineHi}
+                    fontFamily={GEIST}
+                    fontWeight={500}
+                    _hover={{ bg: BRAND.shell, transform: 'translateY(-1px)' }}
+                    transition="all 0.15s ease"
                   >
-                    Contact Us
+                    Contact us
                   </Button>
                 </Link>
               </Flex>
