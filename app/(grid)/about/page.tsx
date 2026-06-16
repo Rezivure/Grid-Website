@@ -139,19 +139,19 @@ export default function AboutPage() {
                 borderRadius="lg"
               >
                 <Text color={textColor}>
-                  Our mission is to make privacy a reality for everyone in a world where
-                  it's too often treated as an afterthought. We believe privacy is a right,
-                  not a privilege.
+                  We built Grid because we wanted a location sharing app for our
+                  own families that wasn't quietly selling everyone's data on the
+                  side.
                 </Text>
               </Box>
               <Text color={textColor}>
-                That's why we've created a secure, end-to-end encrypted location-sharing
-                service that puts your safety and privacy first. No selling, no tracking,
-                no compromises—ever.
+                Grid is end-to-end encrypted, so your location stays between you
+                and the people you share it with. We don't have access to it on
+                our servers, and there are no ads in the app.
               </Text>
               <Text color={textColor}>
-                We're building trust, one encrypted location at a time, so you can live
-                freely and securely in the digital age.
+                The mobile app is open source. You can read the code, fork it,
+                or run your own server.
               </Text>
             </Section>
 
@@ -175,13 +175,13 @@ export default function AboutPage() {
                   filter="blur(60px)"
                 />
                 <Text color={textColor} position="relative">
-                  We come from backgrounds in defense, intelligence, and cybersecurity—fields
-                  where protecting sensitive information is mission-critical.
+                  We have backgrounds in defense, intelligence, and cybersecurity.
+                  We've spent years building systems where leaking the wrong
+                  byte ends a career.
                 </Text>
               </Box>
               <Text color={textColor}>
-                Now we're using that experience to build technology that empowers you to
-                control your own data and feel confident when you share your location.
+                We're applying the same instincts to consumer location sharing.
               </Text>
             </Section>
 
@@ -194,18 +194,19 @@ export default function AboutPage() {
                 borderLeftColor={accentColor}
               >
                 <Text color={textColor} mb={4}>
-                  Grid gives you full control over your location sharing. Your data is
-                  encrypted, never stored long-term, and never sold. You decide who can see
-                  your location—and for how long.
+                  You decide who sees your location and for how long. Your data
+                  is encrypted on your phone, never stored long-term, and never
+                  sold.
                 </Text>
                 <Text color={textColor}>
-                  Whether you're meeting friends, coordinating with family, or just ensuring
-                  your safety, Grid gives you the privacy and confidence to move freely.
+                  Use it with your family, your hiking group, your moto crew,
+                  whoever. The app doesn't care, and neither do we, because we
+                  can't see any of it.
                 </Text>
               </Box>
               <Text color={textColor} fontWeight="semibold">
-                While other companies monetize your location, we protect it. That's our
-                promise.
+                Most location apps make money on your data. We make money on
+                an optional $5 satellite-maps add-on.
               </Text>
             </Section>
           </Box>

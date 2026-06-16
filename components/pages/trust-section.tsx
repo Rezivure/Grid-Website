@@ -43,7 +43,7 @@ export const TrustSection = () => {
         <VStack spacing={{ base: 14, lg: 18 }} align="stretch">
           {/* Header */}
           <VStack spacing={5} align="flex-start" maxW="760px">
-            <Eyebrow>For every circle</Eyebrow>
+            <Eyebrow>Who uses Grid</Eyebrow>
             <Heading
               as="h2"
               fontFamily={GEIST}
@@ -53,15 +53,16 @@ export const TrustSection = () => {
               sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
               <Box as="span" color={BRAND.paper}>
-                Made for real life.{' '}
+                Not just for{' '}
               </Box>
               <Box as="span" color={BRAND.mint}>
-                Not surveillance.
+                families.
               </Box>
             </Heading>
             <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.6">
-              From family check-ins to group adventures — share your journey,
-              not your data.
+              Families use Grid. So do hiking groups, moto crews, and work teams
+              who want to know where their people are without handing it to a
+              tracking company.
             </Text>
           </VStack>
 

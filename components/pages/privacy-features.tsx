@@ -19,32 +19,36 @@ const features = [
     icon: FiLock,
     title: 'End-to-End Encrypted',
     description:
-      'Your location is encrypted before it leaves your phone. Nobody can read it — not even us.',
+      'Your phone encrypts your location before sending it. Nobody else can read it, including us.',
   },
   {
     icon: FiMap,
     title: 'Private Maps',
-    description: 'Self-hosted Protomaps tiles. No tracking from Google or Apple Maps.',
+    description:
+      'Grid renders maps with our own Protomaps tiles. Google and Apple never see where you’re looking.',
   },
   {
     icon: FiEye,
     title: 'You Control Everything',
-    description: 'Expiring shares, custom schedules, instant revocation. Your rules.',
+    description:
+      'Pick who can see you and for how long. Turn it off whenever.',
   },
   {
     icon: FiShield,
     title: 'Your Data Stays Yours',
-    description: 'We never sell your data. Ever. No ads, no trackers, no compromise.',
+    description:
+      'We don’t sell anything to anyone. There are no ads and no third-party trackers in the app.',
   },
   {
     icon: FiUsers,
     title: 'Unlimited Sharing',
-    description: 'Create groups for family, friends, events. No premium tier, no upsells.',
+    description:
+      'Make as many groups as you want. There’s no premium tier and nothing is paywalled.',
   },
   {
     icon: FiCode,
     title: '100% Open Source',
-    description: 'The Grid app is fully open source. Audit it, fork it, improve it.',
+    description: 'The Grid app is fully open source. Read the code or fork it on GitHub.',
   },
 ]
 
@@ -62,7 +66,7 @@ export const PrivacyFeatures = () => {
         <VStack spacing={{ base: 14, lg: 20 }} align="stretch">
           {/* Header */}
           <VStack spacing={5} align="flex-start" maxW="720px">
-            <Eyebrow>Built in, not bolted on</Eyebrow>
+            <Eyebrow>How Grid works</Eyebrow>
             <Heading
               as="h2"
               fontFamily={GEIST}
@@ -72,10 +76,10 @@ export const PrivacyFeatures = () => {
               sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
               <Box as="span" color={BRAND.paper}>
-                Privacy isn&apos;t optional.{' '}
+                Built so we can&apos;t{' '}
               </Box>
               <Box as="span" color={BRAND.mint}>
-                It&apos;s the product.
+                see where you are.
               </Box>
             </Heading>
           </VStack>

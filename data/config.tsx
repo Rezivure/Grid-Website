@@ -9,7 +9,7 @@ const siteConfig = {
   logo: Logo,
   seo: {
     title: 'Grid – Private Location Sharing',
-    description: 'Grid is an end-to-end encrypted location sharing app. Stay private, stay connected.',
+    description: 'Grid is an end-to-end encrypted location sharing app. Like Life360, but Grid can\'t see your location.',
     canonical: 'https://mygrid.app',
     openGraph: {
       type: 'website',
@@ -18,7 +18,7 @@ const siteConfig = {
       site_name: 'Grid',
       title: 'Grid – Private Location Sharing',
       description:
-        'Grid is an encrypted location sharing app that respects your privacy. Unlike Life360, Grid never tracks or sells your location data.',
+        'Grid is an end-to-end encrypted location sharing app. Your location is encrypted on your phone before it\'s sent, so unlike Life360, Grid can\'t track you or sell your data.',
       images: [
         {
           url: 'https://r2-static-grid-files.mygrid.app/iphone-mockup.png',

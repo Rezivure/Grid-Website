@@ -3,16 +3,15 @@ import * as React from 'react'
 
 const faq = {
   title: 'Frequently Asked Questions',
-  description: 'Learn more about Grid, our privacy-focused location sharing app',
+  description: 'Common questions about Grid.',
   items: [
     {
       q: 'How does Grid protect my privacy?',
       a: (
         <>
-          Grid uses end-to-end encryption (E2EE) through Matrix, a secure 
-          communication protocol. This means your location data is encrypted before it leaves 
-          your device and can only be decrypted by the intended recipients. No one else, 
-          including us, can access your location data.
+          Your location is encrypted on your phone before it’s sent, using the
+          Matrix protocol. Only the people you’ve shared with can decrypt it.
+          We can’t read it on our servers.
         </>
       ),
     },
@@ -20,11 +19,10 @@ const faq = {
       q: 'What is Matrix and why do you use it?',
       a: (
         <>
-          Matrix is an open protocol for secure communication. We chose Matrix for its 
-          robust end-to-end encryption that comes built-in. It's open source, extensively 
-          audited, and has a proven track record for secure communications. Using Matrix 
-          allows us to focus on building features while ensuring your data remains private 
-          and secure.
+          Matrix is an open protocol for end-to-end encrypted messaging. It’s
+          the same protocol Element uses for secure chat, and it’s been
+          independently audited several times. Building on Matrix means we
+          don’t have to roll our own encryption.
         </>
       ),
     },
@@ -32,11 +30,9 @@ const faq = {
       q: 'What maps does Grid use and why?',
       a: (
         <>
-          Grid uses Protomaps, an open-source alternative to Google and Apple Maps. 
-          We chose Protomaps because it provides excellent map data while respecting 
-          user privacy - no tracking, no third-party servers, and full control over 
-          your location data. This aligns with our commitment to privacy while still 
-          providing high-quality mapping services.
+          Grid uses Protomaps, an open-source map renderer. We serve the tiles
+          from our own infrastructure on Cloudflare, so Google and Apple never
+          see where you’re looking around the map.
         </>
       ),
     },
@@ -44,9 +40,9 @@ const faq = {
       q: 'Can I use Grid on GrapheneOS?',
       a: (
         <>
-          Yes — Grid runs fully on GrapheneOS and other de-Googled Android
-          devices, with <strong>no Google Play Services required</strong>. We
-          built our own open-source location plugin,{' '}
+          Yes. Grid runs on GrapheneOS and other de-Googled Android devices
+          with <strong>no Google Play Services</strong>. We wrote our own
+          open-source location plugin,{' '}
           <Link
             href="https://github.com/Rezivure/libre-location"
             isExternal
@@ -55,8 +51,8 @@ const faq = {
           >
             libre_location
           </Link>
-          , so Grid gets GPS directly from the OS with zero Google components.
-          No sandboxed Play Services, no workarounds — just install and go.
+          , that gets GPS directly from the OS. No sandboxed Play Services or
+          workarounds needed.
         </>
       ),
     },
@@ -64,11 +60,9 @@ const faq = {
       q: 'What do I need to sign up for Grid?',
       a: (
         <>
-          Grid only requires a phone number for initial verification. This is used 
-          solely to prevent spam and create a secure account - your phone number is 
-          never shared with other users or third parties. After verification, all 
-          communication happens through encrypted Matrix channels, maintaining your 
-          privacy.
+          Just a passkey and a username. New accounts sign up with a passkey,
+          no phone number or email needed. Older accounts that signed up with
+          SMS verification still work, but we’re phasing that out.
         </>
       ),
     },
@@ -76,9 +70,17 @@ const faq = {
       q: 'Can I self-host Grid?',
       a: (
         <>
-          Yes! While Grid works by default with our servers using SMS verification,
-          you can self-host your own instance. Check our documentation for detailed
-          self-hosting instructions and best practices.
+          Yes. Grid runs on Matrix, so you can point the app at your own
+          homeserver. The mobile app is open source on{' '}
+          <Link
+            href="https://github.com/Rezivure/Grid-Mobile"
+            isExternal
+            color="#1FD9A0"
+            _hover={{ color: '#19B587' }}
+          >
+            GitHub
+          </Link>
+          . Hop in our Discord if you want help getting set up.
         </>
       ),
     },
@@ -86,11 +88,10 @@ const faq = {
       q: 'Is Grid free to use?',
       a: (
         <>
-          Yes! Grid is completely free to use with all core features including
-          real-time location sharing, unlimited groups, and end-to-end encryption.
-          We offer an optional satellite maps addon for $4.99/month for those who
-          want enhanced map imagery - this helps support ongoing development while
-          keeping Grid free for everyone. No features are locked behind a paywall.
+          Yes. The core features (encrypted location sharing, unlimited groups,
+          end-to-end encryption) are free. There’s an optional satellite maps
+          add-on for $4.99/month if you want satellite imagery, which helps pay
+          for development. Nothing else is paywalled.
         </>
       ),
     }

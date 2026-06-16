@@ -63,11 +63,11 @@ export const SecurityAuditSection = () => {
               letterSpacing="-0.035em"
               sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
-              Powered by proven security.
+              Audited encryption.
             </Heading>
             <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.6">
-              Built on the Matrix protocol — independently audited by the same
-              firms that verify Signal and Tor.
+              Grid uses the Matrix protocol for end-to-end encryption. The same
+              protocol has been independently reviewed by the firms below.
             </Text>
           </VStack>
 

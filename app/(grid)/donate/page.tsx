@@ -77,10 +77,9 @@ export default function DonatePage() {
               mb={6}
               lineHeight="relaxed"
             >
-              Grid is dedicated to providing seamless private location sharing
-              with zero ads, trackers, or data selling. Your donation helps us
-              maintain servers, bandwidth, and continue development to keep Grid
-              accessible for everyone who values privacy.
+              Grid is a private location sharing app with no ads, trackers, or
+              data sales. Donations keep the servers running and pay for
+              development, so we can keep the app free.
             </Text>
             <HStack spacing={4} justify="center">
               {['100% Independent', 'No Ads Ever', 'Privacy First'].map((item) => (

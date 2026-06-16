@@ -77,7 +77,7 @@ export const FinalCTASection = () => {
           {/* Testimonials */}
           <VStack spacing={10} w="full" align="stretch">
             <VStack spacing={5} align="flex-start" maxW="720px">
-              <Eyebrow>What people say</Eyebrow>
+              <Eyebrow>Reviews</Eyebrow>
               <Heading
                 as="h2"
                 fontFamily={GEIST}
@@ -86,7 +86,7 @@ export const FinalCTASection = () => {
                 letterSpacing="-0.035em"
                 sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
               >
-                Trusted by privacy-conscious users.
+                What folks are saying.
               </Heading>
             </VStack>
 
@@ -168,7 +168,7 @@ export const FinalCTASection = () => {
                 Ready to share privately?
               </Heading>
               <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }}>
-                Join thousands who&apos;ve chosen privacy over surveillance.
+                Grab Grid on iOS or Android.
               </Text>
             </VStack>
 

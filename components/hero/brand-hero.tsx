@@ -92,8 +92,8 @@ export const BrandHero = () => {
                 sx={{ fontSize: 'clamp(16px, 1.8vw, 21px)' }}
                 maxW="540px"
               >
-                Real-time location, end-to-end encrypted. No phone number,
-                no email, no tracking SDKs.
+                End-to-end encrypted, in real time. Sign up with a passkey,
+                no phone number or email needed.
               </Text>
 
               <HStack spacing={4} align="center" flexWrap="wrap" rowGap={3}>
