@@ -70,15 +70,15 @@ export const CompareTeaser = () => {
               sx={{ fontSize: 'clamp(34px, 5vw, 64px)' }}
             >
               <Box as="span" color={BRAND.paper}>
-                Same use case.{' '}
+                Why Grid,{' '}
               </Box>
               <Box as="span" color={BRAND.mint}>
-                Different business model.
+                not Life360.
               </Box>
             </Heading>
             <Text color={BRAND.slateHi} fontSize={{ base: 'md', md: 'lg' }} lineHeight="1.6">
-              The same friends-and-family location sharing — without the tracking,
-              the data sales, or the account that knows who you are.
+              Both apps let you share your location with people you trust. Grid
+              just doesn&apos;t make money off it.
             </Text>
           </VStack>
 

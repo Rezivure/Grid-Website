@@ -3,7 +3,7 @@ export const seoConfig = {
     name: 'Grid',
     url: 'https://mygrid.app',
     logo: 'https://mygrid.app/static/favicons/favicon.ico',
-    description: 'Grid is the leading end-to-end encrypted (E2EE) location sharing app. Share your location privately with military-grade encryption. No tracking, no data selling - just secure E2EE location sharing that respects your privacy.',
+    description: 'Grid is an end-to-end encrypted location sharing app. Your phone encrypts your location before sending it, so Grid can\'t read it or sell it. Open source and self-hostable.',
   },
   twitter: {
     handle: '@MyGridHQ',
@@ -44,7 +44,7 @@ export const seoConfig = {
   pages: {
     home: {
       title: 'Grid - E2EE Location Sharing App | End-to-End Encrypted GPS Tracking',
-      description: 'Grid is the #1 end-to-end encrypted (E2EE) location sharing app. Share GPS location privately with military-grade E2EE encryption. Open source, self-hostable, zero tracking. The secure Life360 alternative.',
+      description: 'Grid is an end-to-end encrypted location sharing app. Share your location with people you trust. Your phone encrypts it before sending, so Grid can\'t read it. Open source, self-hostable, no trackers. A private Life360 alternative.',
       keywords: [
         'e2ee location sharing',
         'end-to-end encrypted location sharing',
@@ -60,8 +60,8 @@ export const seoConfig = {
       image: 'https://r2-static-grid-files.mygrid.app/mocknew2.svg',
     },
     about: {
-      title: 'About Grid - Secure Encrypted Location Sharing App',
-      description: 'Learn about Grid, the privacy-first E2EE location sharing app. We provide encrypted location tracking without compromising your privacy or selling your data.',
+      title: 'About Grid - Encrypted Location Sharing App',
+      description: 'About Grid, an end-to-end encrypted location sharing app built by Rezivure LLC. Encrypted on your phone, open source, no trackers, no data sales.',
       keywords: ['about grid app', 'private location app', 'encrypted gps tracking', 'secure family tracker'],
     },
     privacy: {
@@ -108,7 +108,7 @@ export const seoConfig = {
         'https://mastodon.social/@getgrid',
         'https://bsky.app/profile/getgrid.bsky.social',
       ],
-      description: 'Grid provides end-to-end encrypted location sharing for privacy-conscious users.',
+      description: 'Grid is an end-to-end encrypted location sharing app.',
     },
     webApplication: {
       '@context': 'https://schema.org',
@@ -122,7 +122,7 @@ export const seoConfig = {
         price: '0',
         priceCurrency: 'USD',
       },
-      description: 'Grid is the leading end-to-end encrypted (E2EE) location sharing app. Military-grade E2EE encryption ensures your GPS location stays private. Open source, self-hostable, zero tracking.',
+      description: 'Grid is an end-to-end encrypted location sharing app. Your phone encrypts your location before sending it. Open source, self-hostable, no trackers.',
       aggregateRating: {
         '@type': 'AggregateRating',
         ratingValue: '4.8',
@@ -137,7 +137,6 @@ export const seoConfig = {
         'Open source',
         'Self-hostable',
         'No data tracking',
-        'Military-grade encryption',
         'Cross-platform (iOS/Android)',
       ],
       creator: {

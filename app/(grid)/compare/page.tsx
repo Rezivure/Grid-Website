@@ -138,9 +138,8 @@ export default function ComparePage() {
             <Box as="span" display="block" color="#1FD9A0">Grid.</Box>
           </Heading>
           <Text color="#5A6670" fontSize={{ base: 'md', md: 'lg' }} maxW="640px" lineHeight="1.5">
-            A straightforward comparison of how Grid and Life360 handle the
-            things that matter most: encryption, identity, map data, and what
-            happens to your location after it leaves your phone.
+            How Grid and Life360 stack up on encryption, sign-up, maps, and
+            what happens to your location after it leaves your phone.
           </Text>
         </Stack>
 
@@ -242,10 +241,10 @@ export default function ComparePage() {
             Grid renders maps with{' '}
             <Link href="https://protomaps.com" color="#FAFAF9" _hover={{ color: '#1FD9A0' }}>
               Protomaps
-            </Link>{' '}
-            tiles served from our own infrastructure — no Google Maps, no Apple
-            Maps, no commercial tile provider. Grid runs on de-Googled Android
-            (including GrapheneOS) because we ship our own location plugin,{' '}
+            </Link>
+            , served from our own infrastructure. We don&apos;t use Google or
+            Apple map tiles. Grid runs on de-Googled Android (including
+            GrapheneOS) because we ship our own location plugin,{' '}
             <Link
               href="https://pub.dev/packages/libre_location"
               color="#FAFAF9"
@@ -253,8 +252,8 @@ export default function ComparePage() {
             >
               libre_location
             </Link>
-            , which does not depend on Google Play Services. Life360&apos;s
-            historical data sales are documented in the{' '}
+            , which doesn&apos;t depend on Google Play Services. Life360&apos;s
+            data sales are documented in the{' '}
             <Link
               href="https://www.ftc.gov/news-events/news/press-releases/2024/05/ftc-order-will-ban-x-mode-and-its-successor-outlogic-sharing-or-selling-any-sensitive-location-data"
               color="#FAFAF9"
@@ -262,7 +261,7 @@ export default function ComparePage() {
             >
               FTC settlement
             </Link>{' '}
-            with X-Mode/Outlogic, who purchased location data from Life360.
+            with X-Mode/Outlogic, who bought location data from Life360.
           </Text>
         </Stack>
       </Container>
